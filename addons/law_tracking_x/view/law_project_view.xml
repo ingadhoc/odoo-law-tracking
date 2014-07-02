@@ -198,7 +198,8 @@
 
 
                          <!-- <group> -->
-                         <group col="4">
+                         <group>
+                            <group>
                             <label for="presenter_id" string="Presenter" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}"/>
                             <div attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
                                 <field name="presenter_id"  on_change="onchange_presenter(presenter_id)"  domain="[('legislature_id','=',legislature_id)]" context="{'default_legislature_id':legislature_id}"/>
@@ -207,10 +208,13 @@
                                 <field name="block_representatives_perc" widget="progressbar"/>                                  
                             </div>
                       
+                         </group>
+                            <group>
                             <field name="entry_date"/>                            
                             <field name="law_number"/>                            
                             <!-- <field name="user_subscription_state"/> -->
                             <!-- <field name="last_update"/> -->
+                         </group>
                          </group>
                         <label for="law_category_ids"/>
                         <!-- <label for="law_category_ids" class="oe_edit_only"/> -->
