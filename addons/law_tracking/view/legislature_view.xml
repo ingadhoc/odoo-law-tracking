@@ -90,8 +90,6 @@
                         />
                     <field name="type"
                         />
-                    <field name="country_id"
-                        />
                 </tree>
             </field>
         </record>

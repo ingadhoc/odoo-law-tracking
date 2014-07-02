@@ -104,7 +104,8 @@
                                     <div class="oe_kanban_partner_categories"/>
                                     <div class="oe_kanban_partner_links"/>
                                     <ul>
-                                        <li t-if="record.state_id.raw_value and record.country_id.raw_value"><field name="state_id"/>, <field name="country_id"/></li>
+                                        <!-- se oculta por pedido del cliente -->
+                                        <!-- <li t-if="record.state_id.raw_value and record.country_id.raw_value"><field name="state_id"/>, <field name="country_id"/></li> -->
                                         <li t-if="record.state_id.raw_value and !record.country_id.raw_value"><field name="state_id"/></li>
                                         <li t-if="record.type.raw_value"><field name="type"/></li>
                                     </ul>
