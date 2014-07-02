@@ -32,4 +32,5 @@ import commission_detail
 import wizard
 import block
 import subscription
+import res_country
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -55,6 +55,9 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_res_partner_filter"/>
             <field name="arch" type="xml">
+                <field name="category_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
                 <search position="inside">
                     <field name="legislature_id" invisible="'from_commissions' not in context"/>
                     <field name="chamber" invisible="'from_commissions' not in context"/>
