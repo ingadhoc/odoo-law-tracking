@@ -44,6 +44,8 @@ class law_tracking_project_type(osv.osv):
         'name': fields.char('Name', required=True, size=64, translate=True),
         'stage_ids': fields.many2many('law_tracking.stage', 'law_project_stage_type_relation', 'type_id', 'stage_id', 'Tasks Stages',),
         'unicameral': fields.boolean('Unicameral?',),     
+        # TODO use this for filtering presenter on chamber
+        # 'entrance_chamber': fields.selection([(u'deputies', u'Deputies'), (u'senators', u'Senators')], string='Entrance Chamber', required=True),
     }
 
 
