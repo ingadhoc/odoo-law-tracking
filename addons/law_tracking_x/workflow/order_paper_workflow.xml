@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.order_paper -->
+<!-- law_tracking.order_paper -->
+<!-- law_tracking.order_paper -->
+<openerp>
+    <data>
+
+        <!-- Activities -->
+
+        <record id="law_tracking.a_0D91_1EF4" model="workflow.activity">
+<!--             <field name="wkf_id" ref="order_paper_untitle_wkf"/>
+            <field name="name">Notified</field> -->
+            <field name="action">
+                action_notify()
+                write({'state':'notified'})
+            </field>
+            <!-- <field name="kind">function</field> -->
+        </record>
+        <record id="law_tracking.a_0D91_1EF5" model="workflow.activity">
+<!--             <field name="wkf_id" ref="order_paper_untitle_wkf"/>
+            <field name="name">Treated</field> -->
+            <field name="action">
+                action_treated()
+                write({'state':'treated'})
+            </field>
+            <!-- <field name="kind">function</field> -->
+        </record>
+<!--         <record id="a_0D91_1EF6" model="workflow.activity">
+            <field name="wkf_id" ref="order_paper_untitle_wkf"/>
+            <field name="flow_stop">True</field>
+            <field name="name">Cancelled</field>
+            <field name="action">
+                write({'state':'cancelled'})
+            </field>
+            <field name="kind">function</field>
+        </record> -->
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

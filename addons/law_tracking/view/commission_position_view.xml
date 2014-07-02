@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.commission_position -->
+<!-- law_tracking.commission_position -->
+<!-- law_tracking.commission_position -->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_law_tracking_commission_position_filter" model="ir.ui.view">
+            <field name="name">law_tracking.commission_position.select</field>
+            <field name="model">law_tracking.commission_position</field>
+            <field name="arch" type="xml">
+                <search string="Commission Position" version="7.0">
+                    <group string="By Attribute">
+                    <field name="name" string="Label"
+                            />
+                    </group>
+                    <group string="By object">
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_law_tracking_commission_position_form" model="ir.ui.view">
+            <field name="name">law_tracking.commission_position.form</field>
+            <field name="model">law_tracking.commission_position</field>
+            <field name="arch" type="xml">
+                <form string="Commission Position" version="7.0">
+                    <header>
+                    </header>
+                    <sheet string="Commission Position">
+                     <group>
+                        <field name="name"
+                            />
+                     </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_law_tracking_commission_position_tree" model="ir.ui.view">
+            <field name="name">law_tracking.commission_position.tree</field>
+            <field name="model">law_tracking.commission_position</field>
+            <field name="arch" type="xml">
+                <tree string="Commission Position"
+                    >
+                    <field name="name"
+                        />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

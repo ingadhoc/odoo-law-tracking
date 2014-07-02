@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.commission_treatment -->
+<!-- law_tracking.commission_treatment -->
+<!-- law_tracking.commission_treatment -->
+<openerp>
+    <data>
+        <!-- Workflow -->
+
+        <record id="commission_treatment_commission_treatment_wkf" model="workflow">
+            <field name="name">law_tracking.commission_treatment.commission_treatment</field>
+            <field name="osv">law_tracking.commission_treatment</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <!-- Activities -->
+
+        <record id="a_0D7D_0D35" model="workflow.activity">
+            <field name="wkf_id" ref="commission_treatment_commission_treatment_wkf"/>
+            <field name="flow_start">True</field>
+            <field name="name">On Treatment</field>
+            <field name="action">
+                write({'state':'on_treatment'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_0D7D_0D36" model="workflow.activity">
+            <field name="wkf_id" ref="commission_treatment_commission_treatment_wkf"/>
+            <field name="flow_stop">True</field>
+            <field name="name">Approved</field>
+            <field name="action">
+                write({'state':'approved'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_0D7D_1090" model="workflow.activity">
+            <field name="wkf_id" ref="commission_treatment_commission_treatment_wkf"/>
+            <field name="name">Disapproved</field>
+            <field name="action">
+                write({'state':'disapproved'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+
+        <!-- Transitions -->
+
+        <record id="t_0D7D_0D38" model="workflow.transition">
+            <field name="act_from" ref="a_0D7D_0D35"/>
+            <field name="act_to" ref="a_0D7D_0D36"/>
+            <field name="signal">sgn_approve</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_0D7D_1091" model="workflow.transition">
+            <field name="act_from" ref="a_0D7D_0D35"/>
+            <field name="act_to" ref="a_0D7D_1090"/>
+            <field name="signal">sgn_disapproved</field>
+            <field name="condition">True</field>
+        </record>
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

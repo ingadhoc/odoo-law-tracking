@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+  
+
+        <record id="law_tracking.view_law_tracking_enclosure_treatment_detail_form" model="ir.ui.view">
+            <field name="name">law_tracking.enclosure_treatment_detail.form</field>
+            <field name="model">law_tracking.enclosure_treatment_detail</field>
+            <field name="arch" type="xml">
+                <form string="enclosure_treatment_detail" version="7.0">
+                    <header>
+                    </header>
+                    <sheet string="enclosure_treatment_detail">
+                    <group>
+                        <field name="order_paper_id" domain="[('legislature_id','=',legislature_id),('chamber','=',chamber),('type','=','enclosure')]" context="{'default_chamber':chamber,'default_type':'enclosure','default_legislature_id':legislature_id,}"/>
+                        <field name="note"/>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="law_tracking.view_law_tracking_enclosure_treatment_detail_tree" model="ir.ui.view">
+            <field name="name">law_tracking.enclosure_treatment_detail.tree</field>
+            <field name="model">law_tracking.enclosure_treatment_detail</field>
+            <field name="arch" type="xml">
+                <tree string="enclosure_treatment_detail" create="false"
+                    >
+                    <field name="order_paper_id"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

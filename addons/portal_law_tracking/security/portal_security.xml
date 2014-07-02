@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+<!--         <record id="portal_law_suggestions_rule" model="ir.rule">
+            <field name="name">User Parent Partner Law Suggestions</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_suggestion"/>
+            <field name="domain_force">['|',('partner_id','=',[user.partner_id.id]),('partner_id','=',[user.partner_id.parent_id.id])]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record> -->
+
+<!--         <record id="portal_law_projects_followed_rule" model="ir.rule">
+            <field name="name">Portal Followed Projects</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_project"/>
+            <field name="domain_force">[('message_follower_ids','in',[user.partner_id.id])]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record> -->
+
+<!-- We disable it for errors on viewing projects from portal. This restriction is now from menuitems -->
+        <record id="base.res_partner_portal_public_rule" model="ir.rule">
+            <field name="name">res_partner: read access on my partner and commissions and legislators</field>
+            <field name="domain_force">['|','|','|',('is_commission','=',True), ('is_legislator','=',True),('id', 'child_of', user.commercial_partner_id.id),('is_employee','=',True)]</field>
+        </record>
+
+        <record id="law_project_portal_rule" model="ir.rule">
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_project"/>
+            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+            <field name="name">law project portal access: full access only on followed categories</field>
+            <field name="domain_force">[('law_category_ids','in',[x.id for x in user.partner_id.law_category_ids])]</field>
+        </record>
+
+    </data>
+</openerp>

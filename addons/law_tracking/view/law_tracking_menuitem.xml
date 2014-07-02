@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+-->
+<openerp>
+    <data>
+
+        <menuitem
+            name="Info Law"
+            id="menu_info_law"
+            sequence="5"
+            groups="group_user"
+            />
+
+
+        <menuitem
+            name="Administration"
+            id="menu_administration"
+            sequence="5"
+            parent="menu_info_law"
+            groups="group_user"
+            />
+
+
+        <menuitem
+            name="Configuration"
+            id="menu_configuration"
+            sequence="100"
+            parent="menu_info_law"
+            groups="group_manager"
+            />
+
+
+        <menuitem
+            name="Legislatures Info"
+            id="menu_legislatures_info"
+            sequence="20"
+            parent="menu_info_law"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_block_blocks" model="ir.actions.act_window">
+            <field name="name">Blocks</field>
+            <field name="res_model">law_tracking.block</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_block_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_block_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Blocks"
+            id="menu_blocks"
+            sequence="20"
+            action="action_law_tracking_block_blocks"
+            parent="menu_configuration"
+            groups="group_manager"
+            />
+
+        <record id="action_law_tracking_commission_position_commission_positions" model="ir.actions.act_window">
+            <field name="name">Commission Positions</field>
+            <field name="res_model">law_tracking.commission_position</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_commission_position_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_commission_position_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Commission Positions"
+            id="menu_commission_positions"
+            sequence="40"
+            action="action_law_tracking_commission_position_commission_positions"
+            parent="menu_configuration"
+            groups="group_manager"
+            />
+
+        <record id="action_law_tracking_partner_commissions" model="ir.actions.act_window">
+            <field name="name">Commissions</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_partner_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_partner_filter"/>
+            <field name="context">{'default_is_commission':True,'from_commissions':True}</field>
+            <field name="domain">[('is_commission','=',True)]</field>
+        </record>
+
+        <menuitem
+            name="Commissions"
+            id="menu_commissions"
+            sequence="30"
+            action="action_law_tracking_partner_commissions"
+            parent="menu_legislatures_info"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_partner_companies" model="ir.actions.act_window">
+            <field name="name">Companies</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_partner_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_partner_filter"/>
+            <field name="context">{'default_is_company':True}</field>
+            <field name="domain">[('is_company','=',True)]</field>
+        </record>
+
+        <menuitem
+            name="Companies"
+            id="menu_companies"
+            sequence="30"
+            action="action_law_tracking_partner_companies"
+            parent="menu_administration"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_partner_legislators" model="ir.actions.act_window">
+            <field name="name">Legislators</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_partner_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_partner_filter"/>
+            <field name="context">{'default_is_legislator':True,'from_legislators':True}</field>
+            <field name="domain">[('is_legislator','=',True)]</field>
+        </record>
+
+        <menuitem
+            name="Legislators"
+            id="menu_legislators"
+            sequence="20"
+            action="action_law_tracking_partner_legislators"
+            parent="menu_legislatures_info"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_legislature_legislatures" model="ir.actions.act_window">
+            <field name="name">Legislatures</field>
+            <field name="res_model">law_tracking.legislature</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_legislature_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_legislature_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Legislatures"
+            id="menu_legislatures"
+            sequence="10"
+            action="action_law_tracking_legislature_legislatures"
+            parent="menu_legislatures_info"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_order_paper_order_paper" model="ir.actions.act_window">
+            <field name="name">Order Paper</field>
+            <field name="res_model">law_tracking.order_paper</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_order_paper_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_order_paper_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Order Paper"
+            id="menu_order_paper"
+            sequence="30"
+            action="action_law_tracking_order_paper_order_paper"
+            parent="menu_administration"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_law_project_subscribed_law_projects" model="ir.actions.act_window">
+            <field name="name">Subscribed Law Projects</field>
+            <field name="res_model">law_tracking.law_project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_law_project_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_law_project_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Subscribed Law Projects"
+            id="menu_subscribed_law_projects"
+            sequence="20"
+            action="action_law_tracking_law_project_subscribed_law_projects"
+            parent="menu_administration"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_subscription_subscriptions" model="ir.actions.act_window">
+            <field name="name">Subscriptions</field>
+            <field name="res_model">law_tracking.subscription</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_subscription_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_subscription_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Subscriptions"
+            id="menu_subscriptions"
+            sequence="40"
+            action="action_law_tracking_subscription_subscriptions"
+            parent="menu_administration"
+            groups="group_user"
+            />
+
+        <record id="action_law_tracking_law_project_unsubscribed_law_projects" model="ir.actions.act_window">
+            <field name="name">Unsubscribed Law Projects</field>
+            <field name="res_model">law_tracking.law_project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_law_project_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_law_project_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Unsubscribed Law Projects"
+            id="menu_unsubscribed_law_projects"
+            sequence="25"
+            action="action_law_tracking_law_project_unsubscribed_law_projects"
+            parent="menu_administration"
+            groups="group_user"
+            />
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

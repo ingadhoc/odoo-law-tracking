@@ -1,0 +1,119 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* auth_signup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.saas~2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-06 19:06+0000\n"
+"PO-Revision-Date: 2013-11-06 16:10-0300\n"
+"Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: auth_signup
+#: view:res.users:0
+msgid "A password reset has been requested for this user. An email containing the following link has been sent:"
+msgstr "Un restablecimiento de contraseña se ha solicitado para este usuario. Un correo electrónico que contiene el siguiente enlace ha sido enviado:"
+
+#. module: auth_signup
+#: selection:res.users,state:0
+msgid "Activated"
+msgstr "Activado"
+
+#. module: auth_signup
+#: view:res.users:0
+msgid "An invitation email containing the following subscription link has been sent:"
+msgstr "Una invitación por correo electrónico que contiene el siguiente enlace de suscripción ha sido enviado:"
+
+#. module: auth_signup
+#: selection:res.users,state:0
+msgid "Never Connected"
+msgstr "Nunca se ha conectado"
+
+#. module: base
+#: field:res.partner,display_name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: auth_signup
+#: model:email.template,body_html:auth_signup.set_password_email
+msgid ""
+"\n"
+"                \n"
+"                    <p>\n"
+"                        ${object.name},\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        You have been invited to connect to \"${object.company_id.name}\" in order to get access to your documents in OpenERP.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        To accept the invitation, click on the following link:\n"
+"                    </p>\n"
+"                    <ul>\n"
+"                        <li><a href=\"${object.signup_url}\">Accept invitation to \"${object.company_id.name}\"</a></li>\n"
+"                    </ul>\n"
+"                    <p>\n"
+"                        Thanks,\n"
+"                    </p>\n"
+"                    <pre>\n"
+"--\n"
+"${object.company_id.name or ''}\n"
+"${object.company_id.email or ''}\n"
+"${object.company_id.phone or ''}\n"
+"                    </pre>\n"
+"                \n"
+"            "
+msgstr ""
+"\n"
+"                \n"
+"                    <p>\n"
+"                        ${object.name},\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        Usted ha sido invitado para conectarse a "${object.company_id.name}" con el fin de obtener acceso a los documentos en OpenERP.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        Para aceptar la invitación, haga clic en el siguiente enlace:\n"
+"                    </p>\n"
+"                    <ul>\n"
+"                        <li><a href=\"${object.signup_url}\">Aceptar invitación a \"${object.company_id.name}\"</a></li>\n"
+"                    </ul>\n"
+"                    <p>\n"
+"                        Gracias,\n"
+"                    </p>\n"
+"                    <pre>\n"
+"--\n"
+"${object.company_id.name or ''}\n"
+"${object.company_id.email or ''}\n"
+"${object.company_id.phone or ''}\n"
+"                    </pre>\n"
+"                \n"
+"            "
+
+#. module: auth_signup
+#. openerp-web
+#: code:addons/auth_signup/static/src/js/auth_signup.js:177
+#, python-format
+msgid "An email has been sent with credentials to reset your password"
+msgstr "Un correo electrónico ha sido enviado con credenciales para restablecer su contraseña"
+
+#. module: auth_signup
+#: view:res.users:0
+msgid "Send an Invitation Email"
+msgstr "Enviar una invitación por correo electrónico"
+
+#. module: auth_signup
+#: model:email.template,subject:auth_signup.set_password_email
+msgid "${object.company_id.name} invitation to connect on OpenERP"
+msgstr "${object.company_id.name} invitación a conectarse en OpenERP"
+
+#. module: auth_signup
+#: view:res.users:0
+msgid "Send Reset Password Instructions"
+msgstr "Enviar instrucciones de restablecimiento de contraseña"
+

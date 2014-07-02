@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.commission_detail -->
+<!-- law_tracking.commission_detail -->
+<!-- law_tracking.commission_detail -->
+<openerp>
+    <data>
+
+
+        <!-- TREEVIEW -->
+
+        <record id="view_law_tracking_commission_detail_tree" model="ir.ui.view">
+            <field name="name">law_tracking.commission_detail.tree</field>
+            <field name="model">law_tracking.commission_detail</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_commission_detail_tree"/>
+            <field name="arch" type="xml">
+                <tree string="Commission Detail" position="attributes">
+                    <attribute name="editable">top</attribute>
+                </tree>
+                <field name="commission_id" position="attributes">
+                    <attribute name="domain">[('is_commission','=',True),('legislature_id','=',legislature_id)]</attribute>
+                    <attribute name="context">{'default_is_commission':True,'default_legislature_id':legislature_id}</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

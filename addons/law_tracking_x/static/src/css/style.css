@@ -1,0 +1,30 @@
+.openerp button.oe_highlight_blue {
+  background-color: #c02c2c;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#59dc5f), to(#1aa21a));
+  background-image: -webkit-linear-gradient(top, #59dc5f, #1aa21a);
+  background-image: -moz-linear-gradient(top, #59dc5f, #1aa21a);
+  background-image: -ms-linear-gradient(top, #59dc5f, #1aa21a);
+  background-image: -o-linear-gradient(top, #59dc5f, #1aa21a);
+  background-image: linear-gradient(to bottom, #59dc5f, #1aa21a);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(155, 155, 155, 0.4) inset;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(155, 155, 155, 0.4) inset;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(155, 155, 155, 0.4) inset;
+}
+.openerp button.oe_highlight_blue:hover {
+  background-color: #c63939;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#58e258), to(#1bab1b));
+  background-image: -webkit-linear-gradient(top, #58e258, #1bab1b);
+  background-image: -moz-linear-gradient(top, #58e258, #1bab1b);
+  background-image: -ms-linear-gradient(top, #58e258, #1bab1b);
+  background-image: -o-linear-gradient(top, #58e258, #1bab1b);
+  background-image: linear-gradient(to bottom, #58e258, #1bab1b);
+}
+.openerp button.oe_highlight_blue:active {
+  background-color: #cb2121;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#20c520), to(#23d223));
+  background-image: -webkit-linear-gradient(top, #20c520, #23d223);
+  background-image: -moz-linear-gradient(top, #20c520, #23d223);
+  background-image: -ms-linear-gradient(top, #20c520, #23d223);
+  background-image: -o-linear-gradient(top, #20c520, #23d223);
+  background-image: linear-gradient(to bottom, #20c520, #23d223);
+}

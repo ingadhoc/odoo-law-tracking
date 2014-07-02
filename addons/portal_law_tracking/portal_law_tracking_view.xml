@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+<!-- We hide messaging menu for portal users -->
+        <!-- <menuitem name="Messaging" id="portal.portal_messages" parent="portal.portal_menu" sequence="10" groups="base.group_no_one"/> -->
+        <record id="portal.portal_messages" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('base.group_no_one')])]"/>
+        </record>
+        
+        <menuitem name="About Us" id="portal.portal_company" parent="portal.portal_menu" groups="base.group_no_one" sequence="200"/>
+
+        <menuitem
+            name="Law Projects"
+            id="menu_portal_law"
+            sequence="3"
+            parent="portal.portal_menu"
+            />
+
+
+        <menuitem
+            name="Legislatures Info"
+            id="menu_legislatures_info"
+            sequence="8"
+            parent="portal.portal_menu"
+            />
+
+        <menuitem
+            name="Legislatures"
+            id="menu_legislatures"
+            sequence="10"
+            action="law_tracking.action_law_tracking_legislature_legislatures"
+            parent="menu_legislatures_info"
+            />
+
+        <menuitem
+            name="Legislators"
+            id="menu_legislators"
+            sequence="20"
+            action="law_tracking.action_law_tracking_partner_legislators"
+            parent="menu_legislatures_info"
+            />
+
+        <menuitem
+            name="Commissions"
+            id="menu_commissions"
+            sequence="30"
+            action="law_tracking.action_law_tracking_partner_commissions"
+            parent="menu_legislatures_info"
+            />            
+    </data>
+</openerp>

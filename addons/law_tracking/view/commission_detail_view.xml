@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.commission_detail -->
+<!-- law_tracking.commission_detail -->
+<!-- law_tracking.commission_detail -->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_law_tracking_commission_detail_filter" model="ir.ui.view">
+            <field name="name">law_tracking.commission_detail.select</field>
+            <field name="model">law_tracking.commission_detail</field>
+            <field name="arch" type="xml">
+                <search string="Commission Detail" version="7.0">
+                    <group string="By Attribute">
+                    </group>
+                    <group string="By object">
+                    <field name="commission_id" string="Commissions"
+                            />
+                    <field name="commission_position_id" string="Position"
+                            />
+                    <field name="legislature_member_id" string="Legislature Member"
+                            />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_law_tracking_commission_detail_form" model="ir.ui.view">
+            <field name="name">law_tracking.commission_detail.form</field>
+            <field name="model">law_tracking.commission_detail</field>
+            <field name="arch" type="xml">
+                <form string="Commission Detail" version="7.0">
+                    <header>
+                    </header>
+                    <sheet string="Commission Detail">
+                     <group>
+                    <field name="commission_id"
+                            domain="[('is_commission','=',True),('legislature_id','=',legislature_id)]"
+                            context="{'default_is_commission':True,'default_legislature_id':legislature_id}"
+                            />
+                    <field name="commission_position_id"
+                            />
+                     </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_law_tracking_commission_detail_tree" model="ir.ui.view">
+            <field name="name">law_tracking.commission_detail.tree</field>
+            <field name="model">law_tracking.commission_detail</field>
+            <field name="arch" type="xml">
+                <tree string="Commission Detail"
+                    >
+                    <field name="commission_id"
+                        />
+                    <field name="commission_position_id"
+                        />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

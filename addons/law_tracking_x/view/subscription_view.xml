@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.subscription -->
+<!-- law_tracking.subscription -->
+<!-- law_tracking.subscription -->
+<openerp>
+    <data>
+
+<!-- Agregamos el grupo law manager para que los law user no vean los botones -->
+        <record id="view_law_tracking_subscription_form" model="ir.ui.view">
+            <field name="name">law_tracking.subscription.form</field>
+            <field name="model">law_tracking.subscription</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_subscription_form"/>
+            <field name="arch" type="xml">
+                <button name="sgn_suscribe" position="attributes">
+                    <attribute name="groups">law_tracking.group_manager</attribute>
+                    <attribute name="class">oe_highlight_blue</attribute>
+                </button>                
+                <button name="sgn_cancel" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </button>    
+                <button name="sgn_require" position="attributes">
+                    <attribute name="groups">law_tracking.group_manager</attribute>
+                    <attribute name="class">oe_highlight_blue</attribute>
+                </button>
+                <button name="action_wfk_set_draft" position="attributes">
+                    <attribute name="groups">law_tracking.group_manager</attribute>
+                </button>
+                <button name="sgn_unsubscribe" position="attributes">
+                    <attribute name="groups">law_tracking.group_manager</attribute>
+                </button>
+                <field name="state" position="attributes">
+                    <attribute name="statusbar_visible">draft,required,subscribed,unsubscribed</attribute>
+                </field>
+                <field name="price" position="attributes">
+                    <attribute name="groups">law_tracking.group_manager</attribute>
+                </field>
+                <div class="oe_chatter" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </div>                                               
+            </field>
+        </record>         
+
+<!--         <record id="view_law_tracking_subscription_form" model="ir.ui.view">
+            <field name="name">law_tracking.subscription.form</field>
+            <field name="model">law_tracking.subscription</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_subscription_form"/>
+            <field name="arch" type="xml">
+            </field>
+        </record>   -->                  
+  
+
+        <!-- TREEVIEW -->
+        <record id="view_law_tracking_subscription_tree" model="ir.ui.view">
+            <field name="name">law_tracking.subscription.tree</field>
+            <field name="model">law_tracking.subscription</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_subscription_tree"/>
+            <field name="arch" type="xml">
+                <field name="price" position="replace"/>
+                <field name="state" position="after">
+                    <field name="price" groups="law_tracking.group_manager"/>
+                    <field name="to_pay" groups="law_tracking.group_manager" sum="Total"/>
+                </field>
+            </field>
+        </record>
+
+<!--         <record id="action_law_tracking_subscription_subscriptions" model="ir.actions.act_window">
+            <field name="name">Subscriptions</field>
+            <field name="res_model">law_tracking.subscription</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_law_tracking_subscription_tree"/>
+            <field name="search_view_id" ref="view_law_tracking_subscription_filter"/>
+            <field name="domain">[]</field>
+        </record> -->
+
+
+        <record id="action_subscription_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="law_tracking.view_law_tracking_subscription_tree"/>
+            <field name="act_window_id" ref="law_tracking.action_law_tracking_subscription_subscriptions"/>
+        </record>
+        <record id="action_subscription_view_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="law_tracking.view_law_tracking_subscription_form"/>
+            <field name="act_window_id" ref="law_tracking.action_law_tracking_subscription_subscriptions"/>
+        </record>        
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

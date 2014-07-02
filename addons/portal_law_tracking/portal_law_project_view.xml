@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!-- FORMVIEW -->
+
+        <record id="action_portal_law_project_unsubscribed_law_projects" model="ir.actions.act_window">
+            <field name="name">Unsubscribed Law Projects</field>
+            <field name="res_model">law_tracking.law_project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="law_tracking.view_law_tracking_law_project_tree"/>
+            <field name="context">{}</field>
+            <!-- <field name="context">{'search_default_followed':1,}</field> -->
+            <field name="domain">[('user_is_subscriptor', '!=', True)]</field>
+        </record>
+
+        <menuitem
+            id="menu_unsubscribed_law_projects"
+            sequence="20"
+            action="action_portal_law_project_unsubscribed_law_projects"
+            parent="menu_portal_law"
+            />
+
+        <record id="action_portal_law_project_subscribed_law_projects" model="ir.actions.act_window">
+            <field name="name">Subscribed Law Projects</field>
+            <field name="res_model">law_tracking.law_project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="law_tracking_x.view_law_tracking_law_followed_project_kanban"/>
+            <field name="domain">[('user_is_subscriptor', '=', True)]</field>
+            <field name="context">{}</field>
+            <!-- desactivamos el default followed porque no usamos el follow en portal users -->
+            <!-- <field name="context">{'search_default_followed':1,}</field> -->
+        </record>        
+
+        <menuitem
+            id="menu_subscribed_law_projects"
+            sequence="10"
+            action="action_portal_law_project_subscribed_law_projects"
+            parent="menu_portal_law"
+            /> 
+        
+
+
+    </data>
+</openerp>

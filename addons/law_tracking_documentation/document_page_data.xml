@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="menu_law_tracking_documentation" 
+                  sequence="25"
+                  name="Info Law"
+                  parent="openerp_documentation.menu_documentation_main"
+                  />
+
+
+<!-- User -->
+        <record id="info_law_user_page" model="document.page">
+            <field name="name">Info Law - User</field>
+            <!-- <field name="parent_id" ref="demo_category1"/> -->
+            <field name="active" eval="False"/>
+            <field name="google_doc" eval="True"/>
+            <field name="width">100%</field>
+            <field name="height">95%</field>
+            <field name="hide_title" eval="True"/>
+            <field name="url">https://docs.google.com/document/d/1WQb5qz71atl8X_RxT9LlMrEpT0XbS_GuKLYEM2PZLbw/pub</field>
+            <field name="show_document_link" eval="True"/>
+            <field name="document_url">https://docs.google.com/document/d/1WQb5qz71atl8X_RxT9LlMrEpT0XbS_GuKLYEM2PZLbw/edit</field>
+            <field name="content">
+<![CDATA[
+<iframe src="https://docs.google.com/document/d/1WQb5qz71atl8X_RxT9LlMrEpT0XbS_GuKLYEM2PZLbw/pub" width="100%" height="95%" frameborder="0"></iframe>
+]]>
+            </field>
+        </record>
+
+        <record id="action_info_law_user_page" model="ir.actions.act_window">
+            <field name="name">Info Law - User Documentation</field>
+            <field name="res_model">document.page</field>
+            <field name="view_mode">form</field>
+            <field name="target">inlineview</field>
+            <field name="res_id" eval="str(ref('info_law_user_page'))"/> 
+        </record>
+                
+        <menuitem id="menu_info_law_user_page" sequence="10" name="User" groups="law_tracking.group_user"
+                  action="action_info_law_user_page"
+                  parent="menu_law_tracking_documentation"/>
+
+<!-- Manager -->
+        <record id="info_law_manager_page" model="document.page">
+            <field name="name">Info Law - Manager</field>
+            <!-- <field name="parent_id" ref="demo_category1"/> -->
+            <field name="active" eval="False"/>
+            <field name="google_doc" eval="True"/>
+            <field name="width">100%</field>
+            <field name="height">95%</field>
+            <field name="hide_title" eval="True"/>
+            <field name="url">https://docs.google.com/document/d/1tEuR0RfpF8dBnVwvBAISZqz06D_XmD6nvYct9DrDEV0/pub</field>
+            <field name="show_document_link" eval="True"/>
+            <field name="document_url">https://docs.google.com/document/d/1tEuR0RfpF8dBnVwvBAISZqz06D_XmD6nvYct9DrDEV0/edit</field>
+            <field name="content">
+<![CDATA[
+<iframe src="https://docs.google.com/document/d/1tEuR0RfpF8dBnVwvBAISZqz06D_XmD6nvYct9DrDEV0/pub" width="100%" height="95%" frameborder="0"></iframe>
+]]>
+            </field>
+        </record>
+
+        <record id="action_info_law_manager_page" model="ir.actions.act_window">
+            <field name="name">Info Law - User Documentation</field>
+            <field name="res_model">document.page</field>
+            <field name="view_mode">form</field>
+            <field name="target">inlineview</field>
+            <field name="res_id" eval="str(ref('info_law_manager_page'))"/> 
+        </record>
+                
+        <menuitem id="menu_info_law_manager_page" sequence="20" name="Manager" groups="law_tracking.group_manager"
+                  action="action_info_law_manager_page"
+                  parent="menu_law_tracking_documentation"/>
+                  
+    </data>
+</openerp>

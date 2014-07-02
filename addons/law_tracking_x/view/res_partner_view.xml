@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.partner -->
+<!-- res.partner -->
+<!-- res.partner -->
+<openerp>
+    <data>
+
+        <record id="law_tracking.menu_follow_up" model="ir.ui.menu">
+            <field name="groups" eval="[(6, 0, [ref('base.group_portal')])]"/>
+        </record>
+
+        <record id="law_tracking.action_law_tracking_partner_companies" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
+            <!-- <field name="search_view_id" ref="base.view_res_partner_filter"/> -->
+        </record>
+
+        <record id="law_tracking.action_law_tracking_partner_commissions" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
+            <!-- <field name="search_view_id" ref="base.view_res_partner_filter"/> -->
+        </record>
+
+        <record id="law_tracking.action_law_tracking_partner_legislators" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
+            <!-- <field name="search_view_id" ref="base.view_res_partner_filter"/> -->
+        </record>        
+
+        <!-- INHERITED SEARCH -->
+        <record id="view_law_tracking_partner_filter" model="ir.ui.view">
+            <field name="name">law_tracking.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <search position="inside">
+                    <field name="legislature_id" invisible="'from_commissions' not in context"/>
+                    <field name="chamber" invisible="'from_commissions' not in context"/>
+                    <field name="state_id" invisible="'from_legislators' not in context" />
+                    <field name="block_id" invisible="'from_legislators' not in context" />
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW PARTNER MAIL -->
+        <record id="view_res_partner_portal_form" model="ir.ui.view">
+            <field name="name">contact.partner.law_tracking.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="mail.view_emails_partner_info_form"></field>
+            <field name="arch" type="xml">
+                <!-- Ocultamos todo el div de chatter para hacer follow para usuarios portal porque no querian que vean la cantidad de seguidores y demas -->
+                <div class="oe_chatter" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </div> 
+            </field>
+        </record>        
+
+        <!-- FORMVIEW -->mail.view_emails_partner_info_form
+        <record id="view_res_partner_law_tracking_form" model="ir.ui.view">
+            <field name="name">contact.partner.law_tracking.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"></field>
+            <field name="arch" type="xml">
+            <!-- Sacamos las categorias por defecto pero las pordiamos usar mas adelante-->
+                <field name="category_id" position="replace">
+                    <field name="law_category_ids" widget="many2many_tags" placeholder="Categories..." attrs="{'invisible': [('is_company', '=', False)]}"/>
+                </field>
+            
+<!--                 <div class="oe_edit_only" position="attributes">
+                    <attribute name="groups">"base.group_no_one"</attribute>
+                </div> -->
+
+                <div class="oe_edit_only" position="replace">
+                    <div class="oe_edit_only" position="replace" attrs="{'invisible': [('parent_id', '!=', False)]}">
+                        <field name="is_commission" class="oe_inline" readonly="'from_other' in context" attrs="{'invisible': ['|',('is_company','=', True),('is_legislator','=', True)]}"/>
+                        <label for="is_commission" attrs="{'invisible': ['|',('is_company','=', True),('is_legislator','=', True)]}"/>
+                        <field name="is_legislator" readonly="'from_other' in context"  class="oe_inline" attrs="{'invisible': ['|',('is_commission','=', True),('is_company','=', True)]}"/>
+                        <label for="is_legislator" attrs="{'invisible': ['|',('is_commission','=', True),('is_company','=', True)]}"/>
+                        <field name="is_company" on_change="onchange_type(is_company)" class="oe_inline" attrs="{'invisible': ['|',('is_commission','=', True),('is_legislator','=', True)]}"/>
+                        <label for="is_company" string="Is a Company?" attrs="{'invisible': ['|',('is_commission','=', True),('is_legislator','=', True)]}"/>
+                    </div>
+                </div>
+                <form>
+                    <field name="legislature_type" invisible="1"/>
+                </form>
+                <field name="parent_id" position="after">
+                    <field name="legislature_id" on_change="onchange_legislature(legislature_id)" attrs="{'invisible': [('is_commission', '!=', True)],'required': [('is_commission', '=', True)]}" readonly="'from_other' in context" placeholder="Legislature..."/>
+                    <field name="chamber" attrs="{'invisible': ['|',('is_commission', '=', False),('legislature_type','=','unicameral')], 'required': [('is_commission', '=', True)]}" readonly="'from_other' in context" placeholder="Chamber"/> 
+                    <!-- No puede hacer que sea required solo para desde partner -->
+                    <!-- <field name="legislature_id" attrs="{'invisible': [('is_commission', '!=', True)],'required': [('is_commission','=', True)]}" required="'from_other' not in context" invisible="'from_other' in context" placeholder="Legislature..."/> -->
+
+<!--                     <field name="commission_id"
+                        placeholder="Commission..."
+                        domain="[('is_commission', '=', True)]" context="{'default_is_commission': True,}"
+                        attrs="{'invisible': [('is_legislator','=', False)], 'required': [('is_legislator','=', True)]}"/>   -->                    
+                </field>
+
+                <field name="website" position="after">
+                    <field name="block_id" attrs="{'invisible': [('is_legislator','=', False)], 'required': [('is_legislator','=', True)]}"/>  
+                </field>
+
+                <field name="parent_id" position="attributes">
+                    <!-- <attribute name="groups">"base.group_no_one"</attribute> -->
+                    <attribute name="attrs">{'invisible': [('parent_id', '=', False),'|',('is_company','=', True),'|',('is_commission','=', True),('is_legislator','=', True)]}</attribute>
+                </field>            
+
+                <field name="title" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|',('is_company','=', True),('is_commission','=', True)]}</attribute>
+                </field>
+                
+                <field name="function" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|',('is_company','=', True),('is_commission','=', True)]}</attribute>
+                </field>
+
+                <field name="email" position="after">
+                    <field name="contracted_country_ids" widget="many2many_tags" attrs="{'invisible':[('is_company','!=',True)],'required':[('is_company','=',True)]}"/>
+                </field>
+                <page string="Sales &amp; Purchases" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </page>       
+  
+                <page string="Contacts" position="attributes"> 
+                    <attribute name="attrs">{'invisible': [('child_ids', '=', []),('is_company','=', False)]}</attribute>
+                </page>
+                <page string="Contacts" position="after"> 
+                    <page string="Subscriptions"  attrs="{'invisible': [('is_company','=',False)]}">
+                        <field name="subscription_ids"/>
+                    </page>                    
+                    <page string="Legislatures" attrs="{'invisible': [('is_legislator','=',False)]}">
+                        <field name="legislature_member_ids" context="{'form_view_ref': 'law_tracking_x.view_legislature_member_from_partner_form','tree_view_ref':'law_tracking_x.view_legislature_member_from_partner_tree'}"/>
+                    </page>
+                    <page string="Commissions" attrs="{'invisible': [('is_legislator','=',False)]}">
+                        <field name="commision_detail_ids" >
+                            <tree editable="top" colors="grey:state=='cancelled';blue:state in ('active',);black:state in ('finish',); red:state in ()">
+                                <field name="legislature_id"/>
+                                <field name="commission_id"/>
+                                <field name="commission_position_id"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Members" attrs="{'invisible': [('is_commission','=',False)]}">
+                        <field name="commission_detail_ids" context="{'legislature_id':legislature_id,'chamber':chamber}">
+                            <tree editable="top">
+                                <field name="legislature_member_id" domain="[('chamber','=',chamber),('legislature_id','=',legislature_id),('state','=','active')]"/>
+                                <!-- Necesita el modulo 'web_m2x_options' pero da error por ahora -->
+                                <!-- <field name="legislature_member_id" options="{'create': false, 'create_edit': false}" /> -->
+                                <field name="commission_position_id"/>
+                            </tree>                       
+                        </field>
+                    </page>    
+                </page>    
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_partner_kanban_view">
+            <field name="name">res.partner.kanban</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base_setup.res_partner_kanban_view"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="inside">
+                    <field name="law_category_ids"/>
+                    <field name="state_id"/>
+                    <field name="legislature_id"/>
+                    <field name="chamber"/>
+                    <field name="block_id"/>
+                </field>
+                <field name="country" position="replace"/>
+                <xpath expr="//div[@class='oe_kanban_partner_categories']//span[@class='oe_kanban_list_many2many']//field[@name='category_id']" position="replace">
+                    <field name="law_category_ids"/>
+                    <li><field name="legislature_id"/></li>
+                    <li><field name="chamber" invisible="'from_commissions' not in context"/></li>
+                    <li><field name="block_id"/></li>
+                </xpath>                
+                <li t-if="record.parent_id.raw_value and record.function.raw_value" position="after">
+                    <field name="state_id"/>
+                </li>                    
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_partner_tree">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <tree position="inside">
+                    <field name="legislature_id" invisible="'from_commissions' not in context" />
+                    <field name="chamber" invisible="'from_commissions' not in context" />
+                    <field name="block_id" invisible="'from_legislators' not in context" />
+                    <field name="state_id" invisible="'from_legislators' not in context" />
+                    <field name="country" invisible="True" />
+                    <!-- Lo querian invisible en todos -->
+                    <!-- <field name="country" invisible="'from_legislators' not in context" /> -->
+                </tree>                
+            </field>
+        </record>
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

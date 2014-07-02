@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <!-- Update Preferences form (add send mail option)!-->
+        <record id="view_users_form_simple_modif_law" model="ir.ui.view">
+            <field name="name">res.users.preferences.form.mail.clinic</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <group name="preferences" position="after">
+                    <group name="law_options" string="Following Preferences" col="4" groups="base.group_portal">
+                        <field name="is_company" invisible="1"/>
+<!--                         <field name="law_category_ids" readonly="0" widget="many2many_tags">
+                            <tree create='false'>
+                                <field name="name"/>
+                            </tree>
+                        </field> -->
+                        <field name="law_category_ids" readonly="0" widget="many2many_tags"  options="{'create': false, 'create_edit': false}"/>
+                        <!-- <field name="law_category_ids" readonly="0" widget="many2many_tags" attrs="{'invisible':[('is_company','!=',True)]}"/> -->
+<!--                         <field name="parent_law_category_ids" readonly="0" widget="many2many_tags" attrs="{'invisible':[('is_company','=',True)]}"/> -->
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>        

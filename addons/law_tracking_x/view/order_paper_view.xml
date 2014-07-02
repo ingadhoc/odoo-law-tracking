@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.order_paper -->
+<!-- law_tracking.order_paper -->
+<!-- law_tracking.order_paper -->
+<openerp>
+    <data>
+
+        <!-- FORMVIEW -->
+        <record id="view_law_tracking_order_paper_form" model="ir.ui.view">
+            <field name="name">law_tracking.order_paper.form</field>
+            <field name="model">law_tracking.order_paper</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_order_paper_form"/>
+            <field name="arch" type="xml">
+<!--                 <button name="sgn_cancel" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </button> -->
+                <field name="state" position="attributes">
+                    <attribute name="statusbar_visible">draft,notified,treated</attribute>
+                </field>                                
+                <field name="chamber" position="attributes">
+                    <attribute name="attrs">{'invisible':[('legislature_type','=','unicameral')]}</attribute>
+                </field>
+                <field name="date" position="after">
+                    <field name="legislature_id" on_change="onchange_legislature(legislature_id)"/>
+                    <field name="legislature_type" invisible="1"/>
+                </field>
+                <field name="enclosure_treatment_detail_ids" position="replace">
+                    <field name="enclosure_treatment_detail_ids"  context="{'legislature_id':legislature_id,}"  attrs="{'invisible':[('type','!=','enclosure')]}">
+                        <tree>
+                            <field name="law_project_id"/>
+                            <field name="note"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <!-- This option doenst work yet. El quick create tampoco sirve para nada por lo que vi -->
+                                <field name="law_project_id" options="{'create': false, 'create_edit': false}" domain="[('legislature_id','=',legislature_id)]"  quick_create="False"/>
+                                <field name="note"/>
+                            </group>
+                        </form>                        
+                    </field>
+                </field>
+                <field name="treatment_detail_ids" position="replace">
+                    <field name="treatment_detail_ids" context="{'legislature_id':legislature_id,'commission_id':commission_id}" attrs="{'invisible':[('type','!=','commission')]}">
+                        <tree>
+                            <field name="commission_treatment_id"/>
+                            <field name="note"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="commission_treatment_id" context="{'legislature_id':legislature_id,}" domain="[('partner_id','=',commission_id)]" options="{'no_open': True}" quick_create="false"/>
+                                <field name="note"/>
+                            </group>
+                        </form>                        
+                    </field>
+                </field>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_law_tracking_order_paper_tree" model="ir.ui.view">
+            <field name="name">law_tracking.order_paper.tree</field>
+            <field name="model">law_tracking.order_paper</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_order_paper_tree"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="law_projects"/>
+                    <!-- <field name="law_project_ids"/> -->
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

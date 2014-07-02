@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="menu_law_tracking_portal_documentation" 
+                  sequence="90"
+                  name="Info Law"
+                  parent="openerp_documentation.menu_documentation_main"
+                  />
+
+<!-- Customer -->
+        <record id="info_law_customer_page" model="document.page">
+            <field name="name">Info Law - Customer</field>
+            <!-- <field name="parent_id" ref="demo_category1"/> -->
+            <field name="active" eval="False"/>
+            <field name="google_doc" eval="True"/>
+            <field name="width">100%</field>
+            <field name="height">95%</field>
+            <field name="hide_title" eval="True"/>
+            <field name="url">https://docs.google.com/document/d/1djStDjSpwk0h9FeAtqPeUx6Q-X_3SoogXZ-0MwUgQm4/pub</field>
+            <field name="show_document_link" eval="True"/>
+            <field name="document_url">https://docs.google.com/document/d/1djStDjSpwk0h9FeAtqPeUx6Q-X_3SoogXZ-0MwUgQm4/edit</field>
+            <field name="content">
+<![CDATA[
+<iframe src="https://docs.google.com/document/d/1djStDjSpwk0h9FeAtqPeUx6Q-X_3SoogXZ-0MwUgQm4/pub" width="100%" height="95%" frameborder="0"></iframe>
+]]>
+            </field>
+        </record>
+
+        <record id="action_info_law_customer_page" model="ir.actions.act_window">
+            <field name="name">Info Law - User Documentation</field>
+            <field name="res_model">document.page</field>
+            <field name="view_mode">form</field>
+            <field name="target">inlineview</field>
+            <field name="res_id" eval="str(ref('info_law_customer_page'))"/> 
+        </record>
+                
+        <menuitem id="menu_info_law_customer_page" sequence="20" name="Customer" groups="base.group_portal"
+                  action="action_info_law_customer_page"
+                  parent="menu_law_tracking_portal_documentation"/>
+
+                  
+    </data>
+</openerp>

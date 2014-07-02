@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.legislature_member -->
+<!-- law_tracking.legislature_member -->
+<!-- law_tracking.legislature_member -->
+<openerp>
+    <data>
+
+
+        <!-- FORMVIEW -->
+        <record id="view_law_tracking_legislature_member_form" model="ir.ui.view">
+            <field name="name">law_tracking.legislature_member.form</field>
+            <field name="model">law_tracking.legislature_member</field>
+            <field name="inherit_id" ref='law_tracking.view_law_tracking_legislature_member_form'/>
+            <field name="arch" type="xml">
+                <field name="state"  position="attributes">
+                    <attribute name="statusbar_visible">active,finish</attribute>
+                </field>
+                <group position='replace'>
+                    <group>
+                        <field name="entrance_date"/>
+                        <field name="partner_id"/>
+                        <field name="exit_date" position="replace"/>
+                        <field name="commission_detail_ids" context="{'legislature_id':legislature_id}"/>
+                        <field name="legislature_id"
+                            required="False"
+                            invisible="True"
+                            />
+                     </group>
+                 </group>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="law_tracking.view_law_tracking_legislature_member_tree" model="ir.ui.view">
+            <field name="name">law_tracking.legislature_member.tree</field>
+            <field name="model">law_tracking.legislature_member</field>
+            <field name="arch" type="xml">
+                <tree string="legislature_member"
+                    colors="grey:state=='cancelled';blue:state in ('active',);black:state in ('finish',); red:state in ()"
+                    >
+                    <field name="entrance_date"
+                        />
+                    <field name="partner_id"
+                        />
+                    <field name="state" />
+                    <field name="block_id"/>
+                    <field name="block_representatives"/>
+                    <field name="block_representatives_perc" widget="progressbar"/>
+                    <!-- <field name="total_members"/> -->
+                    <field name="exit_date"
+                        />
+                </tree>
+            </field>
+        </record>
+
+
+<!-- FROM PARTNER -->
+
+        <!-- FORMVIEW -->
+        <record id="view_legislature_member_from_partner_form" model="ir.ui.view">
+            <field name="name">legislature_member.from_partner.form</field>
+            <field name="model">law_tracking.legislature_member</field>
+            <field name="priority" eval="90"/>   
+            <field name="arch" type="xml">
+                <form string="legislature_member" version="7.0">
+                    <header>
+                        <button name="sgn_finish"
+                            states="active"
+                            string="Finish"
+                            class="oe_highlight"
+                            />
+                        <button name="action_wfk_set_active"
+                            type="object"
+                            states="cancelled"
+                            string="To Draft"
+                            />
+                        <button name="sgn_cancel"
+                            states="finish"
+                            string="Cancel"
+                            />
+                        <field name="state" widget="statusbar"
+                            statusbar_colors='{}'
+                            />
+                    </header> 
+                    <sheet>                                   
+                        <group>
+                            <field name="entrance_date"/>
+                            <field name="legislature_id"/>
+                            <field name="chamber"/>
+                            <field name="state"/>
+                            <field name="exit_date"/>
+                        </group>
+                    </sheet>                                   
+                </form>     
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+        <record id="view_legislature_member_from_partner_tree" model="ir.ui.view">
+            <field name="name">legislature_member.from_partner.tree</field>
+            <field name="model">law_tracking.legislature_member</field>
+            <field name="priority" eval="90"/>   
+            <field name="arch" type="xml">
+                <tree string="legislature_member"
+                    colors="grey:state=='cancelled';blue:state in ('active',);black:state in ('finish',); red:state in ()"
+                    >
+                    <field name="entrance_date"/>
+                    <field name="legislature_id"/>
+                    <field name="chamber"/>
+                    <field name="state"/>
+                    <field name="exit_date"/>
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<openerp>
+    <data>
+        <record id="law_tracking.commission_treatment_on_treatment" model="mail.message.subtype">
+	    <field name="name">On Treatment</field>
+	    <field name="res_model">law_tracking.commission_treatment</field>
+            <field name="default" eval="True"/>
+	    <field name="description">On Treatment</field>
+        </record>
+        <record id="law_tracking.commission_treatment_approved" model="mail.message.subtype">
+	    <field name="name">Approved</field>
+	    <field name="res_model">law_tracking.commission_treatment</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Approved</field>
+        </record>
+        <record id="law_tracking.commission_treatment_disapproved" model="mail.message.subtype">
+	    <field name="name">Disapproved</field>
+	    <field name="res_model">law_tracking.commission_treatment</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Disapproved</field>
+        </record>
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

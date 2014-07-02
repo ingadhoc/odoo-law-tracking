@@ -1,0 +1,16 @@
+id,fold,sequence,name,state
+law_tracking_stage_7,True,5,Draft,draft
+law_tracking_stage_2,False,10,Deputies Commission,open
+law_tracking_stage_1,False,10,Senators Commision,open
+law_tracking_stage_4,False,20,Deputies Enclosure,open
+law_tracking_stage_3,False,20,Senators Enclosure,open
+law_tracking_stage_9,False,30,Senators Commission,open
+law_tracking_stage_8,False,30,Deputies Commission,open
+law_tracking_stage_11,False,40,Senators Enclosure,open
+law_tracking_stage_10,False,40,Deputies Enclosure,open
+law_tracking_stage_13,False,60,Sanctioned,done
+law_tracking_stage_15,False,70,Promulgated,done
+law_tracking_stage_12,True,200,Parliamentary Status Lost,cancelled
+law_tracking_stage_14,True,150,Vetoed,cancelled
+law_tracking_stage_17,True,100,Disapproved,cancelled
+law_tracking_stage_16,True,150,Check Parlamentary Status Lost,pending

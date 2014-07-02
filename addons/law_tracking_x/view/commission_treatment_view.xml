@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.commission_treatment -->
+<!-- law_tracking.commission_treatment -->
+<!-- law_tracking.commission_treatment -->
+<openerp>
+    <data>
+
+<!-- We make it editable on the form view so that the followed form view doesn have it editable -->
+        <record id="view_law_tracking_commission_treatment_form" model="ir.ui.view">
+            <field name="name">law_tracking.commission_treatment.form</field>
+            <field name="model">law_tracking.commission_treatment</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_commission_treatment_form"/>
+            <field name="arch" type="xml">
+                <!-- We hide buttons and chatter for portal users -->
+                <button name="sgn_approve" position="attributes">
+                    <attribute name="groups">law_tracking.group_user</attribute>
+                </button>
+                <button name="sgn_disapproved" position="attributes">
+                    <attribute name="groups">law_tracking.group_user</attribute>
+                </button>
+                <div class="oe_chatter" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </div> 
+
+                <field name="partner_id" position="replace">
+                    <field name="partner_id" domain="[('legislature_id','=',legislature_id),('chamber','=',chamber),('is_commission','=',True)]" context="{'default_legislature_id':legislature_id,'default_is_commission':True,'default_chamber':chamber}" attrs="{'readonly':[('has_treatments','=',True)]}"/>
+                </field>
+                <field name="treatment_detail_ids" position="replace">
+                    <field name="has_treatments" invisible="1"/>
+                    <field name="treatment_detail_ids" context="{'legislature_id':legislature_id}">
+                        <tree create="false">
+                            <field name="order_paper_id"/>
+                            <field name="note"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="order_paper_id" domain="[('legislature_id','=',legislature_id)]"/>
+                                <field name="note"/>
+                            </group>
+                        </form>
+                    </field>
+                </field>
+            </field>
+        </record>
+
+<!--         <record id="view_law_tracking_sen_commission_treatment_form" model="ir.ui.view">
+            <field name="name">law_tracking.sen_commission_treatment.form</field>
+            <field name="model">law_tracking.sen_commission_treatment</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_sen_commission_treatment_form"/>
+            <field name="arch" type="xml">
+                <tree position="attributes">
+                    <attribute name="editable">top</attribute>
+                </tree>
+
+            </field>
+        </record> -->
+
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

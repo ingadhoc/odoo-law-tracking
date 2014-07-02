@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Law Follow Up
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- law_tracking.law_project -->
+<!-- law_tracking.law_project -->
+<!-- law_tracking.law_project -->
+<openerp>
+    <data>
+        <!-- Law Tracking Stages -->
+        <record id="law_tracking_stage_search" model="ir.ui.view">
+            <field name="name">law_tracking.stage.search</field>
+            <field name="model">law_tracking.stage</field>
+            <field name="arch" type="xml">
+                <search string="Stages">
+                   <field name="name" string="Stages"/>
+                   <field name="state" string="Stages"/>
+                   <!-- <filter icon="terp-check" string="Common" name="common" domain="[('case_default', '=', 1)]" help="Stages common to all law project type"/> -->
+                </search>
+            </field>
+        </record>
+
+        <record id="law_tracking_stage_edit" model="ir.ui.view">
+            <field name="name">law_tracking.stage.form</field>
+            <field name="model">law_tracking.stage</field>
+            <field name="arch" type="xml">
+                <form string="Stage" version="7.0">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <!-- <field name="case_default"/> -->
+                            <field name="state"/>
+                            <field name="fold"/>
+                        </group>
+                    </group>
+                    <field name="description" placeholder="Add a description..."/>
+                </form>
+            </field>
+        </record>
+
+        <record id="law_tracking_stage_tree" model="ir.ui.view">
+            <field name="name">law_tracking.stage.tree</field>
+            <field name="model">law_tracking.stage</field>
+            <field name="arch" type="xml">
+                <tree string="Stages">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="fold"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="law_tracking_stage_action" model="ir.actions.act_window">
+            <field name="name">Stages</field>
+            <field name="res_model">law_tracking.stage</field>
+            <field name="view_type">form</field>
+            <!-- <field name="view_id" ref="task_type_tree"/> -->
+        </record>
+
+        <menuitem action="law_tracking_stage_action" name="Stages" id="law_tracking_stage_menu" parent="law_tracking.menu_configuration" groups="base.group_system" sequence=""/>
+
+
+        <!-- Law Tracking Types types -->
+        <record id="law_tracking_project_type_search" model="ir.ui.view">
+            <field name="name">law_tracking.project.type.search</field>
+            <field name="model">law_tracking.project.type</field>
+            <field name="arch" type="xml">
+                <search string="Stages">
+                   <field name="name" string="Stages"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="law_tracking_project_type_edit" model="ir.ui.view">
+            <field name="name">law_tracking.stage.form</field>
+            <field name="model">law_tracking.project.type</field>
+            <field name="arch" type="xml">
+                <form string="Stage" version="7.0">
+                    <group>
+                        <field name="name"/>
+                        <field name="unicameral"/>
+                        <field name="stage_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="law_tracking_project_type_tree" model="ir.ui.view">
+            <field name="name">law_tracking.stage.tree</field>
+            <field name="model">law_tracking.project.type</field>
+            <field name="arch" type="xml">
+                <tree string="Stages">
+                    <field name="name"/>
+                    <field name="unicameral"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="law_tracking_project_type_action" model="ir.actions.act_window">
+            <field name="name">Law Project Types</field>
+            <field name="res_model">law_tracking.project.type</field>
+            <field name="view_type">form</field>
+            <!-- <field name="view_id" ref="task_type_tree"/> -->
+        </record>
+
+        <menuitem action="law_tracking_project_type_action" name="Law Project Types" id="law_tracking_project_type_menu" parent="law_tracking.menu_configuration" groups="base.group_system" sequence=""/>
+
+<!-- LAW PROJECT -->
+        <!-- TREEVIEW -->
+
+        <record id="view_law_tracking_law_project_tree" model="ir.ui.view">
+            <field name="name">law_tracking.law_project.tree</field>
+            <field name="model">law_tracking.law_project</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_law_project_tree"/>
+            <field name="arch" type="xml">
+                    <field name="reference" position="attributes">
+                        <attribute name="groups">base.group_user</attribute>
+                    </field>
+            </field>
+        </record>
+        
+         <!-- SEARCH VIEW  -->  
+        <record id="view_law_tracking_law_project_filter" model="ir.ui.view">
+            <field name="name">law_tracking.law_project.select</field>
+            <field name="model">law_tracking.law_project</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_law_project_filter"/>
+            <field name="arch" type="xml">
+                <group string="By Attribute" position="inside">
+                    <field name="subscriptor_ids"/>
+                    <filter string="Followed" name="followed" domain="[('message_is_follower', '=', True)]"/>
+<!--                     <filter string="Has Subscriptors" name="has_subscriptors" domain="[('has_subscriptors', '=', True)]"/>
+                    <filter string="Has Not Subscriptors" name="has_not_subscriptors" domain="[('has_subscriptors', '!=', True)]"/> -->
+                </group>
+                <group string="By object" position="after">
+                </group>    
+            </field>
+        </record>
+
+        <!-- Form view unfollowed projects  -->
+        <record id="view_law_tracking_law_project_form" model="ir.ui.view">
+            <field name="name">law_tracking.law_project.form</field>
+            <field name="model">law_tracking.law_project</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_law_project_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="%(law_project_change_stage_action)d" type="action" groups="base.group_user" string="Change Stage" context="{'default_law_project_type_id':law_project_type_id}" class="oe_highlight"/>
+                    <button name="check_suggestions" type="object" groups="base.group_user" string="Send Suggestions"/>
+                    <button name="require_subscription" type="object" class="oe_highlight_blue" attrs="{'invisible':[('user_subscription_state','!=','unsubscribed'),('user_subscription_id','!=',False)]}" groups="base.group_portal" string="Require Subscription"/>
+                    <button name="require_more_information" type="object" class="oe_highlight_blue" groups="base.group_portal" string="Require More Information"/>
+                    <!-- Esto era si querian ocultar el boton cuando ya estaba suscripto -->
+                    <!-- <button name="require_more_information" type="object" class="oe_highlight_blue" attrs="{'invisible':[('user_subscription_state','!=','unsubscribed'),('user_subscription_id','!=',False)]}" groups="base.group_portal" string="Require More Information"/> -->
+                    <button name="unsubscribe" type="object" attrs="{'invisible':[('user_subscription_state','!=','subscribed')]}" groups="base.group_portal" string="Unsubscribe"/>
+                    <field name="copy_stage_id" widget="statusbar" groups="base.group_portal" attrs="{'invisible':[('user_is_subscriptor','!=',True)]}"/>
+                    <field name="user_subscription_state" widget="statusbar" groups="base.group_portal" attrs="{'invisible':[('user_is_subscriptor','=',True)]}"/>
+                    <field name="stage_id" widget="statusbar" groups="base.group_user" options="{'fold_field': 'fold'}"/>
+                    <!-- <field name="stage_id" widget="statusbar" groups="base.group_user"  clickable="True" options="{'fold_field': 'fold'}"/> -->
+                </header> 
+                <sheet string="Law Project" position="replace">
+                    <sheet string="Law Project" version="7.0">
+                        <field name="legislature_type" invisible="1"/>
+                        <!-- <field name="stage_id" invisible="1"/> -->
+                        <div class="oe_title">
+                            <field name="reference" groups="base.group_user" placeholder="Reference"/>
+                            <field name="legislature_id" placeholder="Legislature" on_change="onchange_legislature(legislature_id)" />
+                            <field name="law_project_type_id" placeholder="Entrance Chamber..."  on_change="onchange_type(law_project_type_id)" attrs="{'invisible': [('legislature_type','!=','bicameral')], 'required': [('legislature_type','=','bicameral')]}" options="{'no_open': True}"/>
+                        </div>
+                        <div class="oe_right oe_button_box" name="buttons"> 
+                            <label for="user_subscription_id" groups="base.group_portal" />
+                            <!-- <field name="user_subscription_id" groups="base.group_portal" options='{"no_open": True}'/> -->
+                            <field name="user_subscription_id" groups="base.group_portal" options='{"create": False, "safe": True}'/>
+                        </div>
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+
+
+                         <!-- <group> -->
+                         <group col="4">
+                            <label for="presenter_id" string="Presenter" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}"/>
+                            <div attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
+                                <field name="presenter_id"  on_change="onchange_presenter(presenter_id)"  domain="[('legislature_id','=',legislature_id)]" context="{'default_legislature_id':legislature_id}"/>
+                                <field name="block_id"/>                            
+                                <label string="Participation" class="oe_inline"/>: (<field name="block_representatives"  class="oe_inline"/>/<field name="total_members"  class="oe_inline"/>)
+                                <field name="block_representatives_perc" widget="progressbar"/>                                  
+                            </div>
+                      
+                            <field name="entry_date"/>                            
+                            <field name="law_number"/>                            
+                            <!-- <field name="user_subscription_state"/> -->
+                            <!-- <field name="last_update"/> -->
+                         </group>
+                        <label for="law_category_ids"/>
+                        <!-- <label for="law_category_ids" class="oe_edit_only"/> -->
+                        <field name="law_category_ids" class="oe_edit_only" placeholder="Categories..."/>
+                        <field name="law_category_ids_copy" widget="many2many_tags" class="oe_read_only" placeholder="Categories..."/>
+                         <notebook>
+                            <page string="Summary">
+                                <field name="summary"/>
+                            </page>
+                            <page string="Record" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
+                                <notebook>
+                                    <page string="Enclosure Treatment">
+                                        <field name="enclosure_treatment_detail_ids"/>
+                                    </page>
+                                    <page string="Instances">
+                                        <field name="log_ids"/>
+                                        <!-- <field name="filtered_message_ids" readonly="1" widget="mail_thread"/> -->
+<!--                                         <field name="filtered_message_ids" readonly="1">
+                                            <tree editable="top">
+                                                <field name="date" widget="date"/>
+                                                <field name="body" widget="trp_treeview_html"/>
+                                            </tree>
+                                        </field> -->
+                                    </page> 
+                                </notebook>                                      
+                            </page>                                                                                  
+                            <page string="Commissions" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
+                                <notebook>
+                                    <page string="Deputies">
+                                        <field name="dep_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'deputies'}"/>
+                                    </page>
+                                    <page string="Senators">
+                                        <field name="sen_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'senators'}"/>
+                                    </page> 
+                                </notebook>                                      
+                            </page>       
+<!--                             <page string="Deputies" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}" >
+                                <notebook>
+                                    <page string="Commission Treatment">
+                                        <field name="dep_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'deputies'}"/>
+                                    </page>
+                                    <page string="Enclosure Treatment">
+                                        <field name="deputies_treatment_detail_ids"  context="{'legislature_id':legislature_id,'chamber':'deputies'}"/>
+                                    </page>                                     
+                                </notebook>
+                            </page>
+                            <page string="Senators" attrs="{'invisible': ['|',('legislature_type','!=','bicameral'),('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
+                                <notebook>
+                                    <page string="Commission Treatment">
+                                        <field name="sen_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'senators'}"/>
+                                    </page>     
+                                    <page string="Enclosure Treatment">
+                                        <field name="senators_treatment_detail_ids"  context="{'legislature_id':legislature_id,'chamber':'senators'}"/>
+                                    </page>   
+                                </notebook>
+                            </page>   --> 
+                            <page string="Documents" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
+                                    <field name="law_project_document_ids"/>
+                                    <!-- <field name="attachment_ids"  widget="many2many_binary"/> -->
+                            </page>
+                            <page string="Subscriptions" groups="base.group_user">
+                                <field name="subscription_ids"/>
+                            </page>
+                            <page string="Technical Data" groups="base.group_no_one">
+                                <group>
+                                    <field name="user_is_subscriptor"/>
+                                    <field name="has_subscriptors"/>
+                                    <field name="user_is_employee"/>
+                                    <!-- <field name="subscriptor_ids"/> -->
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </sheet>
+                <field name="message_ids" position="replace"/>    
+<!--                 <field name="message_ids" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </field> -->
+                <!-- Ocultamos el diget para hacer follow para usuarios portal porque no querian que vean la cantidad de seguidores y demas -->
+                <field name="message_follower_ids" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </field>
+                <div class="oe_chatter" position="attributes">
+                    <attribute name="attrs">{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}</attribute>
+                </div>
+            </field>
+        </record>
+
+        <!-- Law Followed Project Kanban View  !-->
+        <record model="ir.ui.view" id="view_law_tracking_law_followed_project_kanban">
+            <field name="name">law_tracking.law_project.kanban</field>
+            <field name="model">law_tracking.law_project</field>        
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <!-- <kanban> -->
+                <kanban default_group_by="stage_id" domain="[('fold','=',True)]" class="oe_notes oe_kanban_quickcreate_textarea" create="false" version="7.0">
+                    <field name="sequence"/>
+                    <field name="message_follower_ids"/>
+                    <field name="message_is_follower"/>
+                    <field name="message_summary"/>
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="open"/>
+                    <field name="legislature_id"/>
+                    <field name="entry_date"/>
+                    <field name="last_update"/>
+                    <templates>
+            <t t-name="kanban-box">
+
+              <t t-set="record.group_fancy" t-value="1"/>
+
+              <div t-attf-class="oe_kanban_global_click oe_semantic_html_override oe_kanban_card #{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}">
+                <div class="oe_dropdown_kanban">
+                </div>
+
+                <div t-attf-class="oe_kanban_content}">
+                  <field name="reference" groups="base.group_user"/>
+                    <div>
+                        <strong><field name="legislature_id"/></strong>                  
+                    </div>
+                </div>
+                <div class="oe_clear"></div>
+                    <field name="law_category_ids"/>
+                    <field name="name"/>
+                    <div class="oe_kanban_footer_left">
+                        <span t-if="record.entry_date.raw_value">
+                            <span class="oe_e">N</span>
+                            Entry Date
+                            <field name="entry_date"/>
+                        </span>  
+        
+                    </div>
+                    <div class="oe_group_button">
+
+                    </div>
+                <div class="oe_clear"></div>
+              </div>
+            </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="law_tracking.action_law_tracking_law_project_subscribed_law_projects" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+            <!-- <field name="context">{'search_default_has_subscriptors':1}</field>             -->
+            <field name="context">{}</field>
+            <field name="domain">[('has_subscriptors', '=', True)]</field>
+            <field name="view_id" ref="view_law_tracking_law_followed_project_kanban"/>
+        </record>
+
+<!--         <record id="action_followed_law_project_view_kanban" model="ir.actions.act_window.view">
+            <field eval="0" name="sequence"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_law_tracking_law_followed_project_kanban"/>
+            <field name="act_window_id" ref="law_tracking.action_law_tracking_law_project_tracked_law_projects"/>
+        </record>
+        <record id="action_followed_law_project_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="law_tracking.view_law_tracking_law_project_tree"/>
+            <field name="act_window_id" ref="law_tracking.action_law_tracking_law_project_tracked_law_projects"/>
+        </record>
+        <record id="action_followed_law_project_view_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_followed_law_project_form"/>
+            <field name="act_window_id" ref="law_tracking.action_law_tracking_law_project_tracked_law_projects"/>
+        </record> -->
+
+        <record id="law_tracking.action_law_tracking_law_project_unsubscribed_law_projects" model="ir.actions.act_window">
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="context">{'search_default_has_not_subscriptors':1}</field> -->
+            <field name="context">{}</field>
+            <field name="domain">[('has_subscriptors', '=', False)]</field>
+        </record>        
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

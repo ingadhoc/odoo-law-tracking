@@ -1,0 +1,2 @@
+id,name,mobile,phone,email,street,street2,city,state_id/id,zip,country_id/id,is_company,law_category_ids/id
+partner_personal,Personal,,,,,,,,,,True,"law_category_03,law_category_05"

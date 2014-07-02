@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+
+<!-- Email template for new user -->
+        <record id="set_password_email" model="email.template">
+            <field name="name">Bienvenido a Info Leyes</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.email|safe}</field>
+            <field name="subject">Bienvenido a Info Leyes!</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado ${object.name},
+</p>
+<p>
+Le damos la bienvenida al Sistema <strong>Info Leyes</strong> para Seguimiento de Proyectos de Ley.
+<br/>
+Su cuenta ya ha sido activada, los datos de acceso al mismo son los siguientes:
+</p>
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Usuario: <strong>${object.login}</strong><br />
+   &nbsp;&nbsp;Contraseña: <strong><a href="${object.signup_url}">Establecer haciendo click aquí</a></strong><br />
+   &nbsp;&nbsp;Acceso al sistema: <strong><a href="${ctx.get('base_url','')}">${ctx.get('base_url','')}</a></strong><br />
+</p>
+<p>
+<strong>Como empezar?</strong>
+<br/>
+<ol>
+<li>
+Registre su contraseña
+<br/>
+<img style="width: 400px; margin-top:10px;" src="law_tracking_x/static/img/restablecer_contrasena.png"/>
+</li>
+<li>
+Acceda al sistema
+<br/>
+<img style="width: 400px; margin-top:10px;" src="law_tracking_x/static/img/log_in.png"/>
+</li>
+<li>
+Defina sus categorías de interés que guiarán las Recomendaciones de Proyectos de Ley
+<br/>
+<img style="width: 500px; margin-top:10px;" src="law_tracking_x/static/img/categorias_1.png"/>
+<br/>
+<img style="width: 500px; margin-top:10px;" src="law_tracking_x/static/img/categorias_2.png"/>
+</li>
+<li>
+Ante cualquier duda puede consultar la ayuda online 
+<br/>
+<img style="width: 400px; margin-top:10px;" src="law_tracking_x/static/img/log_in.png"/>
+</li>
+</ol>
+</p>
+</div>
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>Saludos cordiales</p>
+</div>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.company_id.name}</strong></h3>
+    </div>                
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if object.company_id.street:
+            ${object.company_id.street}<br/>
+        % endif
+        % if object.company_id.street2:
+            ${object.company_id.street2}<br/>
+        % endif
+        % if object.company_id.city or object.company_id.zip:
+            ${object.company_id.zip} ${object.company_id.city}<br/>
+        % endif
+        % if object.company_id.country_id:
+            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if object.company_id.phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Teléfono:&nbsp; ${object.company_id.phone}
+            </div>
+        % endif
+        % if website:
+            <div>
+                Web :&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+]]></field>
+        </record>      
+
+<!-- Email template for law project suggestion -->
+        <record id="project_suggestion_mail" model="email.template">
+            <field name="name">Project Suggestion Mail</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_project"/>
+            <field name="subject">Sugerencia de Nuevo Proyecto de Ley - ${object.legislature_id.name}</field>
+            <field name="email_from"><![CDATA[${ctx.get('company_obj','').name} <${(ctx.get('company_obj','').email)|safe}>]]></field>
+            <field name="partner_to">${ctx.get('partner_ids','')}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Este es un mail para comunicarle que hay un <strong>Nuevo Proyecto de Ley</strong> que le podría interesar.</p>
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Proyecto: <strong>${object.name}</strong><br />
+   &nbsp;&nbsp;Legislatura: <strong>${object.legislature_id.name}</strong><br />
+   % if object.entry_date:
+   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.entry_date,"%d/%m/%Y")}</strong><br />
+   % endif
+   &nbsp;&nbsp;Categorías: <strong>
+   % for category in object.law_category_ids:
+    ${category.name}, 
+   % endfor
+    </strong><br />
+   % if object.legislature_type=='bicameral':
+   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_type_id.name}</strong><br />
+   % endif
+   &nbsp;&nbsp;Link al Proyecto: <strong><a href="${object.get_actual_project_url()}">Acceder aquí</a></strong><br />   
+</p>
+<pre  style="border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+&nbsp;&nbsp;Resumen:
+&nbsp;&nbsp;${object.summary}
+</pre>
+</div>
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>Saludos cordiales</p>
+</div>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${ctx.get('company_obj','').name}</strong></h3>
+    </div>                
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if ctx.get('company_obj','').street:
+            ${ctx.get('company_obj','').street}<br/>
+        % endif
+        % if ctx.get('company_obj','').street2:
+            ${ctx.get('company_obj','').street2}<br/>
+        % endif
+        % if ctx.get('company_obj','').city or ctx.get('company_obj','').zip:
+            ${ctx.get('company_obj','').zip} ${ctx.get('company_obj','').city}<br/>
+        % endif
+        % if ctx.get('company_obj','').country_id:
+            ${ctx.get('company_obj','').state_id and ('%s, ' % ctx.get('company_obj','').state_id.name) or ''} ${ctx.get('company_obj','').country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if ctx.get('company_obj','').phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Teléfono:&nbsp; ${ctx.get('company_obj','').phone}
+            </div>
+        % endif
+        % if website:
+            <div>
+                Web :&nbsp;<a href="${ctx.get('company_obj','').website}">${ctx.get('company_obj','').website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+]]></field>
+        </record>
+
+
+<!-- Email template for subscription Confirmation  -->
+        <record id="subscription_confirmation_mail" model="email.template">
+            <field name="name">Subscription Confirmation Mail</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_subscription"/>
+            <field name="subject">Confirmación de Suscripción al Proyecto de Ley ${object.law_project_id.name} - ${object.law_project_id.legislature_id.name}</field>
+            <field name="body_html"><![CDATA[
+
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Este es un mail para comunicarle que Usted ha sido suscripto al Seguimiento del Proyecto de Ley <strong>${object.law_project_id.name} (${object.law_project_id.reference})</strong> correspondiente a <strong>${object.law_project_id.legislature_id.name},</strong>
+</p>
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Proyecto: <strong>${object.law_project_id.name}</strong><br />
+   &nbsp;&nbsp;Referencia: <strong>${object.law_project_id.reference}</strong><br />
+   &nbsp;&nbsp;Legislatura: <strong>${object.law_project_id.legislature_id.name}</strong><br />
+   % if object.law_project_id.entry_date:
+   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.law_project_id.entry_date,"%d/%m/%Y")}</strong><br />
+   % endif
+   &nbsp;&nbsp;Categorías: <strong>
+   % for category in object.law_project_id.law_category_ids:
+    ${category.name}, 
+   % endfor
+    </strong><br />
+   % if object.law_project_id.legislature_type=='bicameral':
+   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_id.law_project_type_id.name}</strong><br />
+   % endif
+   &nbsp;&nbsp;Link al Proyecto: <strong><a href="${object.law_project_id.get_actual_project_url()}">Acceder aquí</a></strong><br />
+   &nbsp;&nbsp;Precio: <strong>${object.price} mensuales</strong><br />
+</p>
+<pre  style="border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+&nbsp;&nbsp;Resumen:
+&nbsp;&nbsp;${object.law_project_id.summary}
+</pre>
+</div>
+]]></field>
+        </record>
+
+<!-- Email template for subscription Requisition  -->
+        <record id="subscription_requisition_mail" model="email.template">
+            <field name="name">Subscription Requisition Mail</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_subscription"/>
+            <field name="subject">Nueva solicitud de Suscripción al Proyecto de Ley ${object.law_project_id.name} - ${object.law_project_id.legislature_id.name} - ${object.partner_id.name}</field>
+            <field name="body_html"><![CDATA[
+
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Este es un mail para comunicarle que <strong>${object.partner_id.name}</strong> ha solicitado una suscripción al Proyecto de Ley <strong>${object.law_project_id.name} (${object.law_project_id.reference})</strong> correspondiente a <strong>${object.law_project_id.legislature_id.name},</strong>
+</p>
+Puede acceder a la suscripción haciendo <strong><a href="${object.get_actual_url()}">click aquí.</a></strong>.
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Proyecto: <strong>${object.law_project_id.name}</strong><br />
+   &nbsp;&nbsp;Referencia: <strong>${object.law_project_id.reference}</strong><br />
+   &nbsp;&nbsp;Legislatura: <strong>${object.law_project_id.legislature_id.name}</strong><br />
+   % if object.law_project_id.entry_date:
+   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.law_project_id.entry_date,"%d/%m/%Y")}</strong><br />
+   % endif
+   &nbsp;&nbsp;Categorías: <strong>
+   % for category in object.law_project_id.law_category_ids:
+    ${category.name}, 
+   % endfor
+    </strong><br />
+   % if object.law_project_id.legislature_type=='bicameral':
+   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_id.law_project_type_id.name}</strong><br />
+   % endif
+   &nbsp;&nbsp;Link al Proyecto: <strong><a href="${object.law_project_id.get_actual_project_url()}">Acceder aquí</a></strong><br />
+</p>
+<pre  style="border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+&nbsp;&nbsp;Resumen:
+&nbsp;&nbsp;${object.law_project_id.summary}
+</pre>
+</div>
+]]></field>
+        </record>
+
+<!-- Email template for subscription unsubscription  -->
+        <record id="subscription_unsubscription_mail" model="email.template">
+            <field name="name">Subscription Unsubscription Mail</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_subscription"/>
+            <field name="subject">Confirmación de Desuscripción al Proyecto de Ley ${object.law_project_id.name} - ${object.law_project_id.legislature_id.name}</field>
+            <field name="body_html"><![CDATA[
+
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Este es un mail para comunicarle que Usted ha sido desuscripto del Seguimiento del Proyecto de Ley <strong>${object.law_project_id.name} (${object.law_project_id.reference})</strong> correspondiente a <strong>${object.law_project_id.legislature_id.name},</strong>
+</p>
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Proyecto: <strong>${object.law_project_id.name}</strong><br />
+   &nbsp;&nbsp;Referencia: <strong>${object.law_project_id.reference}</strong><br />
+   &nbsp;&nbsp;Legislatura: <strong>${object.law_project_id.legislature_id.name}</strong><br />
+   % if object.law_project_id.entry_date:
+   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.law_project_id.entry_date,"%d/%m/%Y")}</strong><br />
+   % endif
+   &nbsp;&nbsp;Categorías: <strong>
+   % for category in object.law_project_id.law_category_ids:
+    ${category.name}, 
+   % endfor
+    </strong><br />
+   % if object.law_project_id.legislature_type=='bicameral':
+   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_id.law_project_type_id.name}</strong><br />
+   % endif
+   &nbsp;&nbsp;Link al Proyecto: <strong><a href="${object.law_project_id.get_actual_project_url()}">Acceder aquí</a></strong><br />
+</p>
+<pre  style="border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+&nbsp;&nbsp;Resumen:
+&nbsp;&nbsp;${object.law_project_id.summary}
+</pre>
+</div>
+]]></field>
+        </record>
+
+
+<!-- Email template for order paper notification -->
+        <record id="project_order_paper_notification_mail" model="email.template">
+            <field name="name">Project Order Paper Notification Mail</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_project"/>
+            <field name="subject">Próximo tratamiento del Proyecto de Ley ${object.name} - ${object.get_treatment([1]).order_paper_id.legislature_id.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Este es un mail para comunicarle que el proyecto de ley <strong>${object.name} (${object.reference})</strong> correspondiente a <strong>${object.get_treatment([1]).order_paper_id.legislature_id.name},</strong> será tratado en <strong>
+% if object.get_treatment([1]).order_paper_id.type=='commission':
+Comisión ${object.get_treatment([1]).order_paper_id.commission_id.name} de 
+% endif
+${object.get_selection_item(object.get_treatment([1]).order_paper_id,'law_tracking.order_paper','chamber')}</strong> el día <strong>${object.format_date(object.get_treatment([2]).order_paper_id.date,"%d/%m/%Y")}.</strong>
+</p>
+<pre  style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<u>Notas:</u>
+${object.get_treatment([1]).note}
+</pre>
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Proyecto: <strong>${object.name}</strong><br />
+   &nbsp;&nbsp;Referencia: <strong>${object.reference}</strong><br />
+   &nbsp;&nbsp;Legislatura: <strong>${object.legislature_id.name}</strong><br />
+   % if object.entry_date:
+   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.entry_date,"%d/%m/%Y")}</strong><br />
+   % endif
+   &nbsp;&nbsp;Categorías: <strong>
+   % for category in object.law_category_ids:
+    ${category.name}, 
+   % endfor
+    </strong><br />
+   % if object.legislature_type=='bicameral':
+   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_type_id.name}</strong><br />
+   % endif
+   &nbsp;&nbsp;Link al Proyecto: <strong><a href="${object.get_actual_project_url()}">Acceder aquí</a></strong><br/>
+</p>
+<pre  style="border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+&nbsp;&nbsp;Resumen:
+&nbsp;&nbsp;${object.summary}
+</pre>
+</div>
+]]></field>
+        </record>
+
+
+<!-- Email template for order paper treated notification -->
+        <record id="project_order_paper_treated_mail" model="email.template">
+            <field name="name">Project Order Paper Treated Mail</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_project"/>
+            <field name="subject">Resumen de tratamiento del Proyecto de Ley ${object.name} - ${object.get_treatment([1]).order_paper_id.legislature_id.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Compartimos con usted un resumen de lo tratado en <strong>
+% if object.get_treatment([1]).order_paper_id.type=='commission':
+Comisión ${object.get_treatment([1]).order_paper_id.commission_id.name} de 
+% endif
+${object.get_selection_item(object.get_treatment([1]).order_paper_id,'law_tracking.order_paper','chamber')} - ${object.get_treatment([1]).order_paper_id.legislature_id.name}</strong> el día <strong>${object.format_date(object.get_treatment([2]).order_paper_id.date,"%d/%m/%Y")},</strong> en relación al proyecto <strong>${object.name} (${object.reference}).</strong>
+</p>
+<pre  style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<u>Resumen de lo tratado:</u>
+${object.get_treatment([1]).note}
+</pre>
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Proyecto: <strong>${object.name}</strong><br />
+   &nbsp;&nbsp;Referencia: <strong>${object.reference}</strong><br />
+   &nbsp;&nbsp;Legislatura: <strong>${object.legislature_id.name}</strong><br />
+   % if object.entry_date:
+   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.entry_date,"%d/%m/%Y")}</strong><br />
+   % endif
+   &nbsp;&nbsp;Categorías: <strong>
+   % for category in object.law_category_ids:
+    ${category.name}, 
+   % endfor
+    </strong><br />
+   % if object.legislature_type=='bicameral':
+   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_type_id.name}</strong><br />
+   % endif
+   &nbsp;&nbsp;Link al Proyecto: <strong><a href="${object.get_actual_project_url()}">Acceder aquí</a></strong><br />
+</p>
+<pre  style="border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+&nbsp;&nbsp;Resumen:
+&nbsp;&nbsp;${object.summary}
+</pre>
+</div>
+]]></field>
+        </record>
+
+
+<!-- Email template for order paper treated notification -->
+        <record id="project_status_change_mail" model="email.template">
+            <field name="name">Project Status Change Mail</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_project"/>
+            <field name="subject">Cambio de estado del Proyecto de Ley ${object.name} - ${object.legislature_id.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Este es un mail para comunicarle que el proyecto de ley <strong>${object.name} (${object.reference})</strong> correspondiente a <strong>${object.legislature_id.name},</strong> ha cambiado su estado a: <strong>${object.stage_id.name}.</strong>
+</p>
+<p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+   &nbsp;&nbsp;Proyecto: <strong>${object.name}</strong><br />
+   &nbsp;&nbsp;Referencia: <strong>${object.reference}</strong><br />
+   &nbsp;&nbsp;Legislatura: <strong>${object.legislature_id.name}</strong><br />
+   % if object.entry_date:
+   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.entry_date,"%d/%m/%Y")}</strong><br />
+   % endif
+   &nbsp;&nbsp;Categorías: <strong>
+   % for category in object.law_category_ids:
+    ${category.name}, 
+   % endfor
+    </strong><br />
+   % if object.legislature_type=='bicameral':
+   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_type_id.name}</strong><br />
+   % endif
+   &nbsp;&nbsp;Link al Proyecto: <strong><a href="${object.get_actual_project_url()}">Acceder aquí</a></strong><br />
+</p>
+<pre  style="border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+&nbsp;&nbsp;Resumen:
+&nbsp;&nbsp;${object.summary}
+</pre>
+</div>
+]]></field>
+        </record>
+
+
+        <!-- Email template for order paper treated notification -->
+        <record id="company_signature" model="email.template">
+            <field name="name">Company Signature</field>
+            <field name="model_id" ref="base.model_res_company"/>
+            <!-- <field name="email_from"><![CDATA[${object.partner_id.company_id.name} <${(object.partner_id.company_id.email or user.email)|safe}>]]></field> -->
+            <!-- <field name="email_to">${object.partner_id.email}</field> -->
+            <!-- <field name="partner_to">${object.partner_id.id}</field> -->
+            <field name="subject"></field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>Saludos cordiales</p>
+</div>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.name}</strong></h3>
+    </div>                
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if object.street:
+            ${object.street}<br/>
+        % endif
+        % if object.street2:
+            ${object.street2}<br/>
+        % endif
+        % if object.city or object.zip:
+            ${object.zip} ${object.city}<br/>
+        % endif
+        % if object.country_id:
+            ${object.state_id and ('%s, ' % object.state_id.name) or ''} ${object.country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if object.phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Teléfono:&nbsp; ${object.phone}
+            </div>
+        % endif
+        % if website:
+            <div>
+                Web :&nbsp;<a href="${object.website}">${object.website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+]]></field>
+        </record>
+
+
+<!-- Email template for more information request  -->
+        <record id="law_project_more_information_request" model="email.template">
+            <field name="name">Law Project More Information Request</field>
+            <field name="model_id" ref="law_tracking.model_law_tracking_law_project"/>
+            <field name="email_from">${user.email or ''}</field>
+            <field name="email_to">gserra@diez-infomedia.com</field>            
+            <field name="subject">Solicitud de más Información del Proyecto de Ley ${object.name} - ${object.legislature_id.name}}</field>
+            <field name="body_html"><![CDATA[
+
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<p>
+Estimado,
+</p>
+<p>
+Este es un mail para comunicarle que <strong>${user.name}</strong> ha solicitado más información del Proyecto de Ley <strong>${object.name} (${object.reference})</strong> correspondiente a <strong>${object.legislature_id.name},</strong>
+</p>
+</div>
+]]></field>
+        </record>
+
+
+<!-- 
+        <record id="server_action_clinic_meeting_reminder" model="ir.actions.server">
+            <field name="name">Reminder to Patient</field>
+            <field name="model_id" ref="base_calendar.model_crm_meeting"/>
+            <field name="condition">True</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">self.send_mail(cr, uid, [object.id], context)</field>
+        </record>
+
+
+        <record id="filter_mail_sent_false" model="ir.filters">
+            <field name="name">Mail sent False</field>
+            <field name="model_id">crm.meeting</field>            
+            <field name="domain">[['mail_sent', '!=', True]]</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+       
+
+
+        <record id="action_rule_clinic_meeting_reminder" model="base.action.rule">
+            <field name="name">Auto Reminder on Meetings two days before start date.</field>
+            <field name="model_id" ref="base_calendar.model_crm_meeting"/>
+            <field name="sequence">1</field>
+            <field name="filter_id" ref="filter_mail_sent_false"/>
+            <field name="trg_date_id" ref="base_calendar.field_crm_meeting_date"/>
+            <field name="trg_date_range">-2</field>
+            <field name="trg_date_range_type">day</field>
+            <field name="server_action_ids" eval="[(6,0,[ref('server_action_clinic_meeting_reminder')])]"/>
+        </record>
+
+ -->    </data>
+</openerp>

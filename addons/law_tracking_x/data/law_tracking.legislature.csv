@@ -1,0 +1,26 @@
+id,name,state_id,type,country_id
+law_legislature_01,Legislatura de la Provincia de Buenos Aires,Buenos Aires,bicameral,Argentina
+law_legislature_02,Legislatura de la Ciudad de Buenos Aires,Ciudad Autónoma de Buenos Aires,unicameral,Argentina
+law_legislature_03,Legislatura de Catamarca,Catamarca,bicameral,Argentina
+law_legislature_04,Legislatura de Chaco,Chaco,unicameral,Argentina
+law_legislature_05,Legislatura de Chubut,Chubut,unicameral,Argentina
+law_legislature_06,Legislatura de Córdoba,Córdoba,unicameral,Argentina
+law_legislature_07,Legislatura de Corrientes,Corrientes,bicameral,Argentina
+law_legislature_08,Legislatura de Entre Ríos,Entre Ríos,bicameral,Argentina
+law_legislature_09,Legislatura de Formosa,Formosa,unicameral,Argentina
+law_legislature_10,Legislatura de Jujuy,Jujuy,unicameral,Argentina
+law_legislature_11,Legislatura de Mendoza,Mendoza,unicameral,Argentina
+law_legislature_12,Legislatura de Misiones,Misiones,unicameral,Argentina
+law_legislature_13,Legislatura de Neuquén,Neuquén,unicameral,Argentina
+law_legislature_14,Legislatura de La Pampa,La Pampa,unicameral,Argentina
+law_legislature_15,Legislatura de La Rioja,La Rioja,unicameral,Argentina
+law_legislature_16,Legislatura de Rio Negro,Río Negro,unicameral,Argentina
+law_legislature_17,Legislatura de Salta,Salta,bicameral,Argentina
+law_legislature_18,Legislatura de San Juan,San Juan,unicameral,Argentina
+law_legislature_19,Legislatura de San Luis,San Luis,bicameral,Argentina
+law_legislature_20,Legislatura de Santa Cruz,Santa Cruz,unicameral,Argentina
+law_legislature_21,Legislatura de Santa Fe,Santa Fe,bicameral,Argentina
+law_legislature_22,Legislatura de Santiago del Estero,Santiago del Estero,unicameral,Argentina
+law_legislature_23,Legislatura de Tierra del Fuego,Tierra del Fuego,unicameral,Argentina
+law_legislature_24,Legislatura de Tucumán,Tucumán,unicameral,Argentina
+law_legislature_25,Congreso Nacional,Capital Federal,bicameral,Argentina

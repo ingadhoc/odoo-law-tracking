@@ -1,0 +1,46 @@
+id,order,name,is_commission,legislature_id/id,chamber
+law_deputy_commission_01,1,ASUNTOS CONSTITUCIONALES,True,law_legislature_25,deputies
+law_deputy_commission_02,2,LEGISLACION GENERAL,True,law_legislature_25,deputies
+law_deputy_commission_03,3,RELACIONES EXTERIORES Y CULTO,True,law_legislature_25,deputies
+law_deputy_commission_04,4,PRESUPUESTO Y HACIENDA,True,law_legislature_25,deputies
+law_deputy_commission_05,5,EDUCACION,True,law_legislature_25,deputies
+law_deputy_commission_06,6,CIENCIA Y TECNOLOGIA,True,law_legislature_25,deputies
+law_deputy_commission_07,7,CULTURA,True,law_legislature_25,deputies
+law_deputy_commission_08,8,JUSTICIA,True,law_legislature_25,deputies
+law_deputy_commission_09,9,PREVISION Y SEGURIDAD SOCIAL,True,law_legislature_25,deputies
+law_deputy_commission_10,10,ACCION SOCIAL Y SALUD PUBLICA,True,law_legislature_25,deputies
+law_deputy_commission_11,11,"FAMILIA, MUJER, NIÑEZ Y ADOLESCENCIA",True,law_legislature_25,deputies
+law_deputy_commission_12,12,DE LAS PERSONAS MAYORES,True,law_legislature_25,deputies
+law_deputy_commission_13,13,LEGISLACION PENAL,True,law_legislature_25,deputies
+law_deputy_commission_14,14,LEGISLACION DEL TRABAJO,True,law_legislature_25,deputies
+law_deputy_commission_15,15,DEFENSA NACIONAL,True,law_legislature_25,deputies
+law_deputy_commission_16,16,OBRAS PUBLICAS,True,law_legislature_25,deputies
+law_deputy_commission_17,17,AGRICULTURA Y GANADERIA,True,law_legislature_25,deputies
+law_deputy_commission_18,18,FINANZAS,True,law_legislature_25,deputies
+law_deputy_commission_19,19,INDUSTRIA,True,law_legislature_25,deputies
+law_deputy_commission_20,20,COMERCIO,True,law_legislature_25,deputies
+law_deputy_commission_21,21,ENERGIA Y COMBUSTIBLES,True,law_legislature_25,deputies
+law_deputy_commission_22,22,COMUNICACIONES E INFORMATICA,True,law_legislature_25,deputies
+law_deputy_commission_23,23,TRANSPORTES,True,law_legislature_25,deputies
+law_deputy_commission_24,24,ECONOMIAS Y DESARROLLO REGIONAL,True,law_legislature_25,deputies
+law_deputy_commission_25,25,ASUNTOS MUNICIPALES,True,law_legislature_25,deputies
+law_deputy_commission_26,26,"INTERESES MARITIMOS, FLUVIALES, PESQUEROS Y PORTUARIOS",True,law_legislature_25,deputies
+law_deputy_commission_27,27,VIVIENDA Y ORDENAMIENTO URBANO,True,law_legislature_25,deputies
+law_deputy_commission_28,28,"PETICIONES, PODERES Y REGLAMENTO",True,law_legislature_25,deputies
+law_deputy_commission_29,29,JUICIO POLITICO,True,law_legislature_25,deputies
+law_deputy_commission_30,30,RECURSOS NATURALES Y CONSERVACION DEL AMBIENTE HUMANO,True,law_legislature_25,deputies
+law_deputy_commission_31,31,TURISMO,True,law_legislature_25,deputies
+law_deputy_commission_32,32,ECONOMIA,True,law_legislature_25,deputies
+law_deputy_commission_33,33,MINERIA,True,law_legislature_25,deputies
+law_deputy_commission_34,34,PREVENCION DE ADICCIONES Y CONTROL DEL NARCOTRAFICO,True,law_legislature_25,deputies
+law_deputy_commission_35,35,ANALISIS Y SEGUIMIENTO DE NORMAS TRIBUTARIAS Y PREVIS.,True,law_legislature_25,deputies
+law_deputy_commission_36,36,POBLACION Y DESARROLLO HUMANO,True,law_legislature_25,deputies
+law_deputy_commission_37,37,DEPORTES,True,law_legislature_25,deputies
+law_deputy_commission_38,38,DERECHOS HUMANOS Y GARANTIAS,True,law_legislature_25,deputies
+law_deputy_commission_39,39,"ASUNTOS COOPERATIVOS, MUTUALES Y DE ORG.NO GUBERNAMENTALES",True,law_legislature_25,deputies
+law_deputy_commission_40,40,MERCOSUR,True,law_legislature_25,deputies
+law_deputy_commission_41,41,PEQUEÑAS Y MEDIANAS EMPRESAS,True,law_legislature_25,deputies
+law_deputy_commission_42,42,"DEFENSA DEL CONSUMIDOR, DEL USUARIO Y DE LA COMPETENCIA",True,law_legislature_25,deputies
+law_deputy_commission_43,43,SEGURIDAD INTERIOR,True,law_legislature_25,deputies
+law_deputy_commission_44,44,LIBERTAD DE EXPRESION,True,law_legislature_25,deputies
+law_deputy_commission_45,45,DISCAPACIDAD,True,law_legislature_25,deputies

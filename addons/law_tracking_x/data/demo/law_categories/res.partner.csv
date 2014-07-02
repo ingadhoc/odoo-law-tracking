@@ -1,0 +1,23 @@
+id,law_category_ids
+base.res_partner_2,Envases
+base.res_partner_1,Minería
+base.res_partner_13,Telefonía celular
+base.res_partner_7,Forestación
+base.res_partner_9,"Envases,Minería"
+base.res_partner_12,Telefonía celular
+base.res_partner_14,Forestación
+base.res_partner_3,"Forestación,Minería"
+base.res_partner_4,Envases
+base.res_partner_6,Minería
+base.res_partner_5,Telefonía celular
+base.res_partner_21,Forestación
+base.res_partner_11,"Envases,Minería"
+base.res_partner_8,Envases
+base.res_partner_15,Minería
+base.res_partner_17,Telefonía celular
+base.res_partner_19,Forestación
+base.res_partner_16,"Envases,Minería"
+base.res_partner_10,Telefonía celular
+base.res_partner_18,Forestación
+base.res_partner_23,"Forestación,Minería"
+base.res_partner_22,Minería
