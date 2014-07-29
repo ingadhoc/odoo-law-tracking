@@ -76,13 +76,15 @@
 			</model>
 		</userDefined>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Wed Jul 02 15:14:01 ART 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Tue Jul 29 13:27:26 ART 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
     </XMI.documentation>
     <XMI.metamodel xmi.name="UML" xmi.version="1.4"/></XMI.header>
   <XMI.content>
+    <UML:CallAction xmi.id = '-64--88-56-1--3fdd37c2:13bde2231b0:-8000:0000000000002F93'
+      isSpecification = 'false' isAsynchronous = 'false'/>
     <UML:Model xmi.id = '127-0-1-1--17588d67:13b392fe554:-8000:0000000000000ACF'
       name = 'law_tracking' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
       isAbstract = 'false'>
@@ -4129,6 +4131,9 @@
                   </UML:Multiplicity.range>
                 </UML:Multiplicity>
               </UML:AssociationEnd.multiplicity>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1--66344949:13b09938a14:-8000:00000000000011E6'/>
+              </UML:ModelElement.stereotype>
               <UML:ModelElement.taggedValue>
                 <UML:TaggedValue xmi.id = '127-0-1-1-7ea08329:14173c8fbab:-8000:0000000000000DB4'
                   isSpecification = 'false'>
@@ -4805,8 +4810,6 @@
         </UML:Association>
       </UML:Namespace.ownedElement>
     </UML:Model>
-    <UML:CallAction xmi.id = '-64--88-56-1--3fdd37c2:13bde2231b0:-8000:0000000000002F93'
-      isSpecification = 'false' isAsynchronous = 'false'/>
   </XMI.content>
 </XMI>
 <pgml description="org.argouml.uml.diagram.static_structure.ui.UMLClassDiagram|127-0-1-1--17588d67:13b392fe554:-8000:0000000000000ACF"
@@ -5905,11 +5908,11 @@
       <moveto x="688"
               y="732" />
       <lineto x="688"
-              y="920" />
+              y="968" />
     </path>
   </group>
   <group name="Fig7"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[632, 920, 182, 69]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[632, 968, 182, 69]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="127-0-1-1-7ea08329:14173c8fbab:-8000:0000000000000D7D"
        fill="1"
        fillcolor="white"
@@ -5921,7 +5924,7 @@
     
     <rectangle name="Fig7.0"
       x="632"
-      y="920"
+      y="968"
       width="182"
       height="69"
       fill="1"
@@ -5931,7 +5934,7 @@
     />
     <text name="Fig7.1"
       x="633"
-      y="921"
+      y="969"
       width="180"
       height="22"
       fill="0"
@@ -5946,7 +5949,7 @@
       justification="Center"
     >commission_treatment</text>
     <group name="Fig7.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[633, 921, 235, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[633, 969, 235, 0]"
          href="127-0-1-1-7ea08329:14173c8fbab:-8000:0000000000000D7D"
          fill="0"
          fillcolor="white"
@@ -5959,7 +5962,7 @@
       
       <rectangle name="Fig7.2.0"
         x="633"
-        y="921"
+        y="969"
         width="235"
         height="0"
         fill="0"
@@ -5970,7 +5973,7 @@
     </group>
     <rectangle name="Fig7.3"
       x="632"
-      y="943"
+      y="991"
       width="182"
       height="1"
       fill="1"
@@ -5979,7 +5982,7 @@
       strokecolor="black"
     />
     <group name="Fig7.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[633, 944, 180, 21]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[633, 992, 180, 21]"
          href="127-0-1-1-7ea08329:14173c8fbab:-8000:0000000000000D7D"
          fill="0"
          fillcolor="white"
@@ -5991,7 +5994,7 @@
       
       <rectangle name="Fig7.4.0"
         x="633"
-        y="944"
+        y="992"
         width="180"
         height="21"
         fill="0"
@@ -6002,7 +6005,7 @@
     </group>
     <rectangle name="Fig7.5"
       x="632"
-      y="965"
+      y="1013"
       width="182"
       height="1"
       fill="1"
@@ -6011,7 +6014,7 @@
       strokecolor="black"
     />
     <group name="Fig7.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[633, 966, 180, 21]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[633, 1014, 180, 21]"
          href="127-0-1-1-7ea08329:14173c8fbab:-8000:0000000000000D7D"
          fill="0"
          fillcolor="white"
@@ -6023,7 +6026,7 @@
       
       <rectangle name="Fig7.6.0"
         x="633"
-        y="966"
+        y="1014"
         width="180"
         height="21"
         fill="0"
@@ -6085,7 +6088,7 @@
       strokecolor="51 51 153"
     >
       <moveto x="813"
-              y="920" />
+              y="968" />
       <lineto x="1368"
               y="916" />
     </path>
@@ -7056,7 +7059,7 @@
       strokecolor="51 51 153"
     >
       <moveto x="632"
-              y="920" />
+              y="968" />
       <lineto x="540"
               y="698" />
     </path>
@@ -9157,7 +9160,7 @@
       <moveto x="514"
               y="1080" />
       <lineto x="632"
-              y="988" />
+              y="1036" />
     </path>
   </group>
   <group name="Fig43"
@@ -10499,7 +10502,7 @@
                         figclassname="org.argouml.uml.diagram.ui.FigAssociationEndAnnotation"
                         ownerhref="127-0-1-1-179dedb2:142e379f706:-8000:0000000000000EB7"
                         angle="45.0"
-                        offset="5" />
+                        offset="43" />
       <argouml:pathitem figname="Fig58.4"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigMultiplicity"
@@ -10709,8 +10712,8 @@
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="127-0-1-1-179dedb2:142e379f706:-8000:0000000000000EDC"
-                        angle="270.0"
-                        offset="-10" />
+                        angle="191.0"
+                        offset="77" />
     </private>
     <path name="Fig61.0"
       description="org.argouml.gefext.ArgoFigPoly"
@@ -10990,8 +10993,8 @@
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigMultiplicity"
                         ownerhref="127-0-1-1--6fab87df:143921164b6:-8000:000000000000137E"
-                        angle="225.0"
-                        offset="5" />
+                        angle="-136.0"
+                        offset="19" />
       <argouml:pathitem figname="Fig64.5"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigAssociationEndAnnotation"

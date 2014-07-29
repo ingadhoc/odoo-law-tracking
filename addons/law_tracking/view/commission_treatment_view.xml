@@ -36,6 +36,8 @@
                     <group string="By Attribute">
                     </group>
                     <group string="By object">
+                    <field name="law_project_id" string="Law Project"
+                            />
                     <field name="partner_id" string="Commission"
                             />
                     </group>
