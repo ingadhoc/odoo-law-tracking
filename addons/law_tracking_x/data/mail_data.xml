@@ -394,6 +394,9 @@ Este es un mail para comunicarle que el proyecto de ley <strong>${object.name} (
    &nbsp;&nbsp;Proyecto: <strong>${object.name}</strong><br />
    &nbsp;&nbsp;Referencia: <strong>${object.reference}</strong><br />
    &nbsp;&nbsp;Legislatura: <strong>${object.legislature_id.name}</strong><br />
+   % if object.stage_id.name=="Promulgado":
+   &nbsp;&nbsp;Número de Ley: <strong>${object.law_number}</strong><br />
+   % endif
    % if object.entry_date:
    &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.entry_date,"%d/%m/%Y")}</strong><br />
    % endif

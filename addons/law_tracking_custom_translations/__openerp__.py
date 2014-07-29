@@ -26,7 +26,7 @@
     'category': u'base.module_category_knowledge_management',
     'demo_xml': [
       ],
-    'depends': [u'law_tracking',],
+    'depends': [u'law_tracking','web_kanban'],
     'description': """
 Law Tracking custom translations
 ================================
