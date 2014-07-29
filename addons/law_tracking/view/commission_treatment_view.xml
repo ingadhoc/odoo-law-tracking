@@ -89,6 +89,8 @@
                 <tree string="Deputies Commission Treatment"
                     colors="grey:state=='cancelled';blue:state in ('on_treatment',);black:state in ('disapproved',); red:state in ()"
                     >
+                    <field name="law_project_id"
+                        />
                     <field name="partner_id"
                         />
                     <field name="state" />

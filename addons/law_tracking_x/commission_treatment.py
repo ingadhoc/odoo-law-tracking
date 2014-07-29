@@ -53,6 +53,20 @@ class commission_treatment(osv.osv):
                 res[data.id] = ''            
         return res 
 
+    def name_search(self, cr, user, name='', args=None, operator='ilike', context=None, limit=100):
+        if not args:
+            args = []    
+        ids = set()     
+        if name:
+            ids.update(self.search(cr, user, args + [('partner_id.name',operator,name)], limit=(limit and (limit-len(ids)) or False) , context=context))
+            if not limit or len(ids) < limit:
+                ids.update(self.search(cr, user, args + [('law_project_id.name',operator,name)], limit=limit, context=context))
+            ids = list(ids)
+        else:
+            ids = self.search(cr, user, args, limit=limit, context=context)
+        result = self.name_get(cr, user, ids, context=context)
+        return result            
+
     def _get_has_treatments(self, cr, uid, ids, field_names, arg, context=None):
         if context is None:
             context = {}
