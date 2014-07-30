@@ -247,10 +247,10 @@
                             <page string="Commissions" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
                                 <notebook>
                                     <page string="Deputies">
-                                        <field name="dep_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'deputies'}"/>
+                                        <field name="dep_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'deputies','from_project':True}"/>
                                     </page>
                                     <page string="Senators">
-                                        <field name="sen_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'senators'}"/>
+                                        <field name="sen_commission_treatment_ids" context="{'legislature_id':legislature_id,'chamber':'senators','from_project':True}"/>
                                     </page> 
                                 </notebook>                                      
                             </page>       

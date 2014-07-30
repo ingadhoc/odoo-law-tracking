@@ -65,17 +65,16 @@
             </field>
         </record>
 
-<!--         <record id="view_law_tracking_sen_commission_treatment_form" model="ir.ui.view">
-            <field name="name">law_tracking.sen_commission_treatment.form</field>
-            <field name="model">law_tracking.sen_commission_treatment</field>
-            <field name="inherit_id" ref="law_tracking.view_law_tracking_sen_commission_treatment_form"/>
+        <record id="view_law_tracking_commission_treatment_tree" model="ir.ui.view">
+            <field name="name">law_tracking.commission_treatment.tree</field>
+            <field name="model">law_tracking.commission_treatment</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_commission_treatment_tree"/>
             <field name="arch" type="xml">
-                <tree position="attributes">
-                    <attribute name="editable">top</attribute>
-                </tree>
-
+                <field name="law_project_id" position="attributes">
+                    <attribute name="invisible">'from_project' in context</attribute>
+                </field>
             </field>
-        </record> -->
+        </record>
 
 
     </data>
