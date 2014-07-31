@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.saas~3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-04 14:02+0000\n"
-"PO-Revision-Date: 2014-07-31 09:47-0300\n"
+"PO-Revision-Date: 2014-07-31 11:13-0300\n"
 "Last-Translator: javier <jd@ingadhoc.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -246,7 +246,7 @@ msgstr "Comisión"
 #: field:law_tracking.order_paper,state:0
 #: field:law_tracking.subscription,state:0
 msgid "State"
-msgstr "Situacion"
+msgstr "Situación"
 
 #. module: law_tracking
 #: selection:law_tracking.legislature,type:0
