@@ -29,6 +29,7 @@ class block(osv.osv):
     """Block"""
     
     _inherit = 'law_tracking.block'
+    _order = 'name'
 
     # def _get_members(self, cr, uid, ids, name, args, context=None):
     #     legislature_member_obj = self.pool.get('law_tracking.legislature_member')
@@ -48,10 +49,5 @@ class block(osv.osv):
     #     'block_members': fields.function(_get_members, type='integer', string='Block Members Qty', readonly=True, multi='_get_user_subscription'),
     #     'block_total': fields.function(_get_user_subscription, type='integer', string='Blocks Total', readonly=True, multi='_get_user_subscription'),        
     # }
-
-
-
-
-block()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
