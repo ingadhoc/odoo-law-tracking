@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.saas~3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-08 16:05+0000\n"
-"PO-Revision-Date: 2014-11-08 13:05-0300\n"
+"PO-Revision-Date: 2014-11-08 13:09-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -337,7 +337,7 @@ msgstr "Contactos"
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Judiciary"
-msgstr "Judiciary"
+msgstr "Poder Judicial"
 
 #. module: law_tracking_x
 #: view:law_tracking.subscription:0 view:res.partner:0
@@ -621,7 +621,7 @@ msgstr "Suscripción"
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Legislator"
-msgstr "Legislator"
+msgstr "Legislador"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,partner_ids:0
@@ -651,7 +651,7 @@ msgstr "Preferencias de Seguimiento"
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Popular Initiative"
-msgstr "Popular Initiative"
+msgstr "Iniciativa Popular"
 
 #. module: law_tracking_x
 #: view:law_tracking.order_paper:0
@@ -2039,7 +2039,7 @@ msgstr ""
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Executive"
-msgstr "Executive"
+msgstr "Poder Ejecutivo"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.law_project_more_information_request
