@@ -201,16 +201,19 @@
                          <!-- <group> -->
                          <group>
                             <group>
-                            <label for="presenter_id" string="Presenter" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}"/>
-                            <div attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
-                                <field name="presenter_id"  on_change="onchange_presenter(presenter_id)"  domain="[('legislature_id','=',legislature_id)]" context="{'default_legislature_id':legislature_id}"/>
-<!-- TODO usar esto para filtrar presnteadores por camaara, pero hay que traer ek campo related entrance_chamber de la project type. El campo entrnace_chamber de law_projecct no lo usamos para nada -->
-                                <!-- <field name="presenter_id"  on_change="onchange_presenter(presenter_id)"  domain="[('legislature_id','=',legislature_id)('chamber','=',entrance_chamber)]" context="{'default_legislature_id':legislature_id}"/> -->
-                                <field name="block_id"/>                            
-                                <label string="Participation" class="oe_inline"/>: (<field name="block_representatives"  class="oe_inline"/>/<field name="total_members"  class="oe_inline"/>)
-                                <field name="block_representatives_perc" widget="progressbar"/>                                  
-                            </div>
-                      
+                                <field name="presented_by"/>
+                                <group colspan="2" attrs="{'invisible':[('presented_by','!=','legislator')]}">
+                                <label for="presenter_id" string="Presenter" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}"/>
+                                <div attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
+                                    <field name="presenter_id"  on_change="onchange_presenter(presenter_id)" attrs="{'required':[('presented_by','=','legislator')]}" domain="[('legislature_id','=',legislature_id)]" context="{'default_legislature_id':legislature_id}"/>
+    <!-- TODO usar esto para filtrar presnteadores por camaara, pero hay que traer ek campo related entrance_chamber de la project type. El campo entrnace_chamber de law_projecct no lo usamos para nada -->
+                                    <!-- <field name="presenter_id"  on_change="onchange_presenter(presenter_id)"  domain="[('legislature_id','=',legislature_id)('chamber','=',entrance_chamber)]" context="{'default_legislature_id':legislature_id}"/> -->
+                                    <field name="block_id"/>                            
+                                    <label string="Participation" class="oe_inline"/>: (<field name="block_representatives"  class="oe_inline"/>/<field name="total_members"  class="oe_inline"/>)
+                                    <field name="block_representatives_perc" widget="progressbar"/>                                  
+                                </div>
+                                </group>
+                          
                          </group>
                             <group>
                             <field name="entry_date"/>                            

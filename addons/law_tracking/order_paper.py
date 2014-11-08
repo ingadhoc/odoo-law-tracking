@@ -1,25 +1,4 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Law Follow Up
-#    Copyright (C) 2014 Sistemas ADHOC
-#    No email
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
 
 import re
 from openerp import netsvc
@@ -48,6 +27,8 @@ class order_paper(osv.osv):
             'law_tracking.order_paper_cancelled': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'cancelled',
         },
     }
+
+
     _columns = {
         'date': fields.date(string='Date', readonly=True, required=True, states={'draft': [('readonly', False)]}),
         'chamber': fields.selection([(u'deputies', u'Deputies'), (u'senators', u'Senators')], string='Chamber', readonly=True, required=True, states={'draft': [('readonly', False)]}),
@@ -61,6 +42,7 @@ class order_paper(osv.osv):
 
     _defaults = {
         'state': 'draft',
+        'legislature_id': lambda self, cr, uid, context=None: context and context.get('legislature_id', False),
     }
 
 
@@ -70,15 +52,18 @@ class order_paper(osv.osv):
 
     def onchange_type(self, cr, uid, ids, context=None):
         """"""
-        raise NotImplementedError
+        result = super(order_paper,self).onchange_type(cr, uid, ids, context=None)
+        return result
 
     def onchange_chamber(self, cr, uid, ids, context=None):
         """"""
-        raise NotImplementedError
+        result = super(order_paper,self).onchange_chamber(cr, uid, ids, context=None)
+        return result
 
     def onchange_commission(self, cr, uid, ids, context=None):
         """"""
-        raise NotImplementedError
+        result = super(order_paper,self).onchange_commission(cr, uid, ids, context=None)
+        return result
 
     def action_wfk_set_draft(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state':'draft'})

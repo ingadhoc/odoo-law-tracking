@@ -76,7 +76,7 @@
 			</model>
 		</userDefined>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Wed Jul 30 17:57:03 ART 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Nov 08 12:45:41 ART 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -4010,10 +4010,10 @@
                   name = 'presenter_id' visibility = 'public' isSpecification = 'false' isNavigable = 'true'
                   ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>
                   <UML:AssociationEnd.multiplicity>
-                    <UML:Multiplicity xmi.id = '127-0-1-1--6fab87df:143921164b6:-8000:0000000000001380'>
+                    <UML:Multiplicity xmi.id = '127-0-1-1-41d2bdc4:149900e7c5b:-8000:0000000000000F00'>
                       <UML:Multiplicity.range>
-                        <UML:MultiplicityRange xmi.id = '127-0-1-1--6fab87df:143921164b6:-8000:000000000000137F'
-                          lower = '1' upper = '1'/>
+                        <UML:MultiplicityRange xmi.id = '127-0-1-1-41d2bdc4:149900e7c5b:-8000:0000000000000EFF'
+                          lower = '0' upper = '1'/>
                       </UML:Multiplicity.range>
                     </UML:Multiplicity>
                   </UML:AssociationEnd.multiplicity>
@@ -8878,7 +8878,7 @@
                         figclassname="org.argouml.uml.diagram.ui.FigAssociationEndAnnotation"
                         ownerhref="127-0-1-1--6870ef3e:1427fbe6870:-8000:00000000000019C9"
                         angle="45.0"
-                        offset="5" />
+                        offset="42" />
       <argouml:pathitem figname="Fig39.4"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigMultiplicity"

@@ -54,15 +54,6 @@ class law_project(osv.osv):
     
     _inherit = 'law_tracking.law_project'
     _order = 'entry_date desc'
-    # _rec_name = 'full_name'
-
-    # TODO if we want to change the way stage_ids is tracked so that it sends an email
-    # _track = {
-    #     'stage_ids': {
-    #         'account.mt_invoice_paid': lambda self, cr, uid, obj, ctx=None: obj.state == 'paid' and obj.type in ('out_invoice', 'out_refund'),
-    #         'account.mt_invoice_validated': lambda self, cr, uid, obj, ctx=None: obj.state == 'open' and obj.type in ('out_invoice', 'out_refund'),
-    #     },
-    # }    
 
     def _get_default_project_id(self, cr, uid, context=None):
         """ Gives default section by checking if present in the context """
@@ -264,6 +255,13 @@ class law_project(osv.osv):
         'copy_stage_id': fields.related('stage_id', type="many2one", relation='law_tracking.stage', string='Stage', readonly=True, domain="['&', ('fold', '=', False), ('law_project_ids', '=', law_project_type_id)]"),
         'stage_id': fields.many2one('law_tracking.stage', 'Stage',
                         domain="[('law_project_ids', '=', law_project_type_id)]", track_visibility="onchange"),
+        'presented_by': fields.selection([
+            ('legislator', 'Legislator'),
+            ('executive', 'Executive'),
+            ('judiciary', 'Judiciary'),
+            ('popular_initiative', 'Popular Initiative'),
+            ], string='Presented By',
+            required=True,),
     }
 
     def copy(self, cr, uid, id, default=None, context=None, done_list=None, local=False):
@@ -337,6 +335,7 @@ class law_project(osv.osv):
 # We make this default because on creation employee should see all the fields
     _defaults = {
         'user_is_employee':True,
+        'presented_by': 'legislator',
         }
 
     _sql_constraints = [
