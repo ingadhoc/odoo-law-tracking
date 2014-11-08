@@ -149,6 +149,7 @@
             <field name="inherit_id" ref="law_tracking.view_law_tracking_law_project_filter"/>
             <field name="arch" type="xml">
                 <group string="By Attribute" position="inside">
+                    <field name="presented_by"/>
                     <field name="law_category_ids"/>
                     <field name="subscriptor_ids"/>
                     <filter string="Followed" name="followed" domain="[('message_is_follower', '=', True)]"/>
