@@ -110,7 +110,7 @@
                             <field name="entrance_date"/>
                             <field name="legislature_id"/>
                             <field name="chamber"/>
-                            <field name="state"/>
+                            <!-- <field name="state"/> -->
                             <field name="exit_date"/>
                         </group>
                     </sheet>                                   
