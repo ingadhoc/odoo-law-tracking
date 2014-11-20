@@ -114,7 +114,7 @@
                 </form>
                 <field name="parent_id" position="after">
                     <field name="legislature_id" on_change="onchange_legislature(legislature_id)" attrs="{'invisible': [('is_commission', '!=', True)],'required': [('is_commission', '=', True)]}" readonly="'from_other' in context" placeholder="Legislature..."/>
-                    <field name="chamber" attrs="{'invisible': ['|',('is_commission', '=', False),('legislature_type','=','unicameral')], 'required': [('is_commission', '=', True)]}" readonly="'from_other' in context" placeholder="Chamber"/> 
+                    <field name="chamber" attrs="{'invisible': ['|','|',('is_commission', '=', False),('legislature_id', '=', False),('legislature_type','=','unicameral')], 'required': [('is_commission', '=', True)]}" readonly="'from_other' in context" placeholder="Chamber"/> 
                     <!-- No puede hacer que sea required solo para desde partner -->
                     <!-- <field name="legislature_id" attrs="{'invisible': [('is_commission', '!=', True)],'required': [('is_commission','=', True)]}" required="'from_other' not in context" invisible="'from_other' in context" placeholder="Legislature..."/> -->
 
