@@ -237,7 +237,13 @@
                                         <field name="enclosure_treatment_detail_ids"/>
                                     </page>
                                     <page string="Instances">
-                                        <field name="log_ids" readonly="1"/>
+                                        <field name="log_ids" readonly="0">
+                                            <tree string="log" create='false' edit='false'>
+                                                <field name="date"/>
+                                                <field name="user_id"/>
+                                                <field name="name"/>
+                                            </tree>
+                                        </field>
                                         <!-- <field name="filtered_message_ids" readonly="1" widget="mail_thread"/> -->
 <!--                                         <field name="filtered_message_ids" readonly="1">
                                             <tree editable="top">
