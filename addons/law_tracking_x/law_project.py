@@ -258,9 +258,9 @@ class law_project(osv.osv):
         'presented_by': fields.selection([
             ('legislator', 'Legislator'),
             ('executive', 'Executive'),
-            ('other', 'Otro'),
             ('judiciary', 'Judiciary'),
             ('popular_initiative', 'Popular Initiative'),
+            ('other', 'Otro'),
             ], string='Presented By',
             required=True,),
     }
