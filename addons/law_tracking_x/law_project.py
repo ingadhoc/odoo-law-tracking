@@ -260,7 +260,7 @@ class law_project(osv.osv):
             ('executive', 'Executive'),
             ('judiciary', 'Judiciary'),
             ('popular_initiative', 'Popular Initiative'),
-            ('other', 'Otro'),
+            ('other', 'Otros'),
             ], string='Presented By',
             required=True,),
     }
