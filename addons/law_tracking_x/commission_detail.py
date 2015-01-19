@@ -19,38 +19,34 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
-import re
-from openerp import netsvc
 from openerp.osv import osv, fields
 
+
 class commission_detail(osv.osv):
+
     """Commission Detail"""
-    
+
     _inherit = 'law_tracking.commission_detail'
+    _rec_name = 'commission_id'
 
     _states_ = [
         # State machine: untitle
-        ('active','Active'),
-        ('finish','Finish'),
-        ('cancelled','Cancelled'),
-    ]    
+        ('active', 'Active'),
+        ('finish', 'Finish'),
+        ('cancelled', 'Cancelled'),
+    ]
 
     _columns = {
-		'partner_id': fields.related('legislature_member_id', 'partner_id', type="many2one", relation="res.partner", string="Partner", readonly=True, ),
-    	'legislature_id': fields.related('legislature_member_id', 'legislature_id', type="many2one", relation="law_tracking.legislature", string="Legislature", readonly=True, ),
-    	'state': fields.related('legislature_member_id', 'state', type="selection", selection=_states_, string="State", readonly=True, ),
+        'partner_id': fields.related('legislature_member_id', 'partner_id', type="many2one", relation="res.partner", string="Partner", readonly=True, store=True),
+        'legislature_id': fields.related('legislature_member_id', 'legislature_id', type="many2one", relation="law_tracking.legislature", string="Legislature", readonly=True, ),
+        'state': fields.related('legislature_member_id', 'state', type="selection", selection=_states_, string="State", readonly=True, ),
     }
 
     _defaults = {
     }
 
-
     _constraints = [
     ]
-
-
 
 
 commission_detail()

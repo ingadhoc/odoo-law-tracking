@@ -27,6 +27,18 @@
 <openerp>
     <data>
 
+        <record id="view_law_tracking_order_paper_filter" model="ir.ui.view">
+            <field name="name">law_tracking.order_paper.filter</field>
+            <field name="model">law_tracking.order_paper</field>
+            <field name="inherit_id" ref="law_tracking.view_law_tracking_order_paper_filter"/>
+            <field name="arch" type="xml">
+                <group>
+                    <field name="enclosure_treatment_detail_ids"/>
+                    <field name="treatment_detail_ids"/>
+                </group>
+            </field>
+        </record>
+
         <!-- FORMVIEW -->
         <record id="view_law_tracking_order_paper_form" model="ir.ui.view">
             <field name="name">law_tracking.order_paper.form</field>

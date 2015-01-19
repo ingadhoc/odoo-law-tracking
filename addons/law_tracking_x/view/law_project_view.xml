@@ -32,7 +32,7 @@
             <field name="model">law_tracking.stage</field>
             <field name="arch" type="xml">
                 <search string="Stages">
-                   <field name="name" string="Stages"/>
+                   <field name="name"/>
                    <field name="state" string="Stages"/>
                    <!-- <filter icon="terp-check" string="Common" name="common" domain="[('case_default', '=', 1)]" help="Stages common to all law project type"/> -->
                 </search>
@@ -89,7 +89,7 @@
             <field name="model">law_tracking.project.type</field>
             <field name="arch" type="xml">
                 <search string="Stages">
-                   <field name="name" string="Stages"/>
+                   <field name="name"/>
                 </search>
             </field>
         </record>
@@ -136,9 +136,12 @@
             <field name="model">law_tracking.law_project</field>
             <field name="inherit_id" ref="law_tracking.view_law_tracking_law_project_tree"/>
             <field name="arch" type="xml">
-                    <field name="reference" position="attributes">
-                        <attribute name="groups">base.group_user</attribute>
-                    </field>
+                <tree>
+                    <field name="law_project_type_id"/>
+                </tree>
+                <field name="reference" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </field>
             </field>
         </record>
         
@@ -148,15 +151,23 @@
             <field name="model">law_tracking.law_project</field>
             <field name="inherit_id" ref="law_tracking.view_law_tracking_law_project_filter"/>
             <field name="arch" type="xml">
+                <group position="before">
+                    <filter string="Followed" name="followed" domain="[('message_is_follower', '=', True)]"/>
+                </group>
                 <group string="By Attribute" position="inside">
-                    <field name="presented_by"/>
+                    <field name="entry_date"/>
+                    <field name="summary"/>
+                    <field name="law_project_document_ids"/>
                     <field name="law_category_ids"/>
                     <field name="subscriptor_ids"/>
-                    <filter string="Followed" name="followed" domain="[('message_is_follower', '=', True)]"/>
-<!--                     <filter string="Has Subscriptors" name="has_subscriptors" domain="[('has_subscriptors', '=', True)]"/>
-                    <filter string="Has Not Subscriptors" name="has_not_subscriptors" domain="[('has_subscriptors', '!=', True)]"/> -->
+                    <!-- lo hacemos asi para que no muestre duplicados y para que no de error -->
+                    <field name="stage_id" domain="" widget="char" filter_domain="[('stage_id.name','ilike',self)]"/>
                 </group>
                 <group string="By object" position="after">
+                    <field name="presenter_id"/>
+                    <field name="presented_by"/>
+                    <field name="block_id"/>
+                    <field name="law_project_type_id"/>
                 </group>    
             </field>
         </record>

@@ -33,4 +33,5 @@ import wizard
 import block
 import subscription
 import res_country
+import enclosure_treatment_detail
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

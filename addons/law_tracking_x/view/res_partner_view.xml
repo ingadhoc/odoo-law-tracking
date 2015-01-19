@@ -65,6 +65,7 @@
                 <search position="inside">
                     <field name="legislature_id" invisible="'from_commissions' not in context"/>
                     <field name="chamber" invisible="'from_commissions' not in context"/>
+                    <field name="commision_detail_ids" invisible="'from_legislators' not in context"/>
                     <field name="state_id" invisible="'from_legislators' not in context" />
                     <field name="block_id" invisible="'from_legislators' not in context" />
                 </search>
