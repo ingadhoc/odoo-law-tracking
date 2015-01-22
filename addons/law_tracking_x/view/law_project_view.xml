@@ -243,6 +243,10 @@
                                 <field name="summary"/>
                             </page>
                             <page string="Record" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
+                                <group col="4" attrs="{'invisible':[('user_is_employee','!=',True)]}">
+                                    <field name="create_uid"/>
+                                    <field name="create_date"/>
+                                </group>
                                 <notebook>
                                     <page string="Enclosure Treatment">
                                         <field name="enclosure_treatment_detail_ids"/>

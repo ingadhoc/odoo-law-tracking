@@ -216,6 +216,8 @@ class law_project(osv.osv):
 
 
     _columns = {
+        'create_date': fields.datetime('Creation Date', readonly=True),
+        'create_uid':  fields.many2one('res.users', 'Creado por', readonly=True,),
         'block_id': fields.related('presenter_id', 'partner_id', 'block_id', relation='law_tracking.block', type='many2one', string='Block', readonly=True),
         'block_representatives_perc': fields.related('presenter_id','block_representatives_perc', string='Block Rep. %%',),
         'block_representatives': fields.related('presenter_id','block_representatives', type='integer', string='Block Rep.', help='Block Representatives', readonly=True, ),
