@@ -38,7 +38,8 @@
         </record>
 
         <record id="law_tracking.action_law_tracking_partner_commissions" model="ir.actions.act_window">
-            <field name="view_mode">kanban,tree,form</field>
+            <!-- <field name="view_mode">kanban,tree,form</field> -->
+            <field name="view_mode">tree,form</field>
             <field name="view_id" ref=""/>
             <!-- <field name="search_view_id" ref="base.view_res_partner_filter"/> -->
         </record>
