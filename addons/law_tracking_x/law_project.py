@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import re
 from openerp import netsvc
 from datetime import datetime, date, timedelta
