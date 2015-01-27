@@ -6,4 +6,4 @@ class enclosure_treatment_detail(osv.osv):
     """"""
 
     _inherit = 'law_tracking.enclosure_treatment_detail'
-    _rec_name = 'note'
+    _rec_name = 'law_project_id'

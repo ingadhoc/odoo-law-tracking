@@ -1,19 +1,20 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* law_tracking
+# 	* law_tracking
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.saas~3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-04 14:02+0000\n"
-"PO-Revision-Date: 2014-07-31 11:13-0300\n"
+"PO-Revision-Date: 2015-01-27 16:32-0300\n"
 "Last-Translator: javier <jd@ingadhoc.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. module: law_tracking
 #: model:ir.module.category,description:law_tracking.module_category_law_tracking
@@ -35,7 +36,7 @@ msgstr "Diputados"
 #: field:law_tracking.legislature_member,commission_detail_ids:0
 #: field:res.partner,commission_detail_ids:0
 msgid "Commission Details"
-msgstr "Detalles de Comision"
+msgstr "Detalles de Comisión"
 
 #. module: law_tracking
 #: model:ir.actions.act_window,name:law_tracking.action_law_tracking_partner_legislators
@@ -44,19 +45,14 @@ msgid "Legislators"
 msgstr "Legisladores"
 
 #. module: law_tracking
-#: view:law_tracking.block:0
-#: view:law_tracking.commission_detail:0
+#: view:law_tracking.block:0 view:law_tracking.commission_detail:0
 #: view:law_tracking.commission_position:0
 #: view:law_tracking.commission_treatment:0
 #: view:law_tracking.enclosure_treatment_detail:0
-#: view:law_tracking.law_project:0
-#: view:law_tracking.law_project_document:0
-#: view:law_tracking.legislature:0
-#: view:law_tracking.legislature_member:0
-#: view:law_tracking.log:0
-#: view:law_tracking.order_paper:0
-#: view:law_tracking.subscription:0
-#: view:law_tracking.treatment_detail:0
+#: view:law_tracking.law_project:0 view:law_tracking.law_project_document:0
+#: view:law_tracking.legislature:0 view:law_tracking.legislature_member:0
+#: view:law_tracking.log:0 view:law_tracking.order_paper:0
+#: view:law_tracking.subscription:0 view:law_tracking.treatment_detail:0
 msgid "By object"
 msgstr "Por Objeto"
 
@@ -156,8 +152,7 @@ msgid "Note"
 msgstr "Nota"
 
 #. module: law_tracking
-#: view:law_tracking.law_project:0
-#: field:law_tracking.law_project,reference:0
+#: view:law_tracking.law_project:0 field:law_tracking.law_project,reference:0
 msgid "Reference"
 msgstr "Referencia"
 
@@ -176,8 +171,12 @@ msgstr "Reuniones"
 #: help:law_tracking.law_project,message_summary:0
 #: help:law_tracking.order_paper,message_summary:0
 #: help:law_tracking.subscription,message_summary:0
-msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
-msgstr "Contiene el resumen del Chat (número de mensajes, ...) Este resumen esta directamente en formato html para poder ser insertado en vistas kanban."
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Contiene el resumen del Chat (número de mensajes, ...) Este resumen esta "
+"directamente en formato html para poder ser insertado en vistas kanban."
 
 #. module: law_tracking
 #: model:ir.model,name:law_tracking.model_res_partner
@@ -216,8 +215,7 @@ msgstr "Documentos"
 #: view:law_tracking.enclosure_treatment_detail:0
 #: field:law_tracking.enclosure_treatment_detail,order_paper_id:0
 #: field:law_tracking.legislature,order_paper_ids:0
-#: view:law_tracking.order_paper:0
-#: view:law_tracking.treatment_detail:0
+#: view:law_tracking.order_paper:0 view:law_tracking.treatment_detail:0
 #: field:law_tracking.treatment_detail,order_paper_id:0
 #: field:res.partner,order_paper_ids:0
 msgid "Order Paper"
@@ -240,8 +238,7 @@ msgstr "Comisión"
 
 #. module: law_tracking
 #: field:law_tracking.commission_treatment,state:0
-#: view:law_tracking.legislature:0
-#: field:law_tracking.legislature,state_id:0
+#: view:law_tracking.legislature:0 field:law_tracking.legislature,state_id:0
 #: field:law_tracking.legislature_member,state:0
 #: field:law_tracking.order_paper,state:0
 #: field:law_tracking.subscription,state:0
@@ -262,10 +259,8 @@ msgid "Followers"
 msgstr "Seguidores"
 
 #. module: law_tracking
-#: view:law_tracking.legislature:0
-#: field:law_tracking.legislature,type:0
-#: view:law_tracking.order_paper:0
-#: field:law_tracking.order_paper,type:0
+#: view:law_tracking.legislature:0 field:law_tracking.legislature,type:0
+#: view:law_tracking.order_paper:0 field:law_tracking.order_paper,type:0
 msgid "Type"
 msgstr "Tipo"
 
@@ -346,8 +341,7 @@ msgstr "Cámara de Ingreso"
 
 #. module: law_tracking
 #: model:ir.model,name:law_tracking.model_law_tracking_block
-#: view:law_tracking.block:0
-#: field:res.partner,block_id:0
+#: view:law_tracking.block:0 field:res.partner,block_id:0
 msgid "Block"
 msgstr "Bloque"
 
@@ -366,8 +360,7 @@ msgid "Commissions"
 msgstr "Comisiones"
 
 #. module: law_tracking
-#: field:law_tracking.block,image:0
-#: field:law_tracking.legislature,image:0
+#: field:law_tracking.block,image:0 field:law_tracking.legislature,image:0
 msgid "Image"
 msgstr "Imagen"
 
@@ -418,19 +411,14 @@ msgid "Administrative Secretary"
 msgstr "Secretaria Administrativa"
 
 #. module: law_tracking
-#: view:law_tracking.block:0
-#: view:law_tracking.commission_detail:0
+#: view:law_tracking.block:0 view:law_tracking.commission_detail:0
 #: view:law_tracking.commission_position:0
 #: view:law_tracking.commission_treatment:0
 #: view:law_tracking.enclosure_treatment_detail:0
-#: view:law_tracking.law_project:0
-#: view:law_tracking.law_project_document:0
-#: view:law_tracking.legislature:0
-#: view:law_tracking.legislature_member:0
-#: view:law_tracking.log:0
-#: view:law_tracking.order_paper:0
-#: view:law_tracking.subscription:0
-#: view:law_tracking.treatment_detail:0
+#: view:law_tracking.law_project:0 view:law_tracking.law_project_document:0
+#: view:law_tracking.legislature:0 view:law_tracking.legislature_member:0
+#: view:law_tracking.log:0 view:law_tracking.order_paper:0
+#: view:law_tracking.subscription:0 view:law_tracking.treatment_detail:0
 msgid "By Attribute"
 msgstr "Por atributo"
 
@@ -491,8 +479,7 @@ msgid "Is a Follower"
 msgstr "Es un seguidor"
 
 #. module: law_tracking
-#: view:law_tracking.log:0
-#: field:law_tracking.log,user_id:0
+#: view:law_tracking.log:0 field:law_tracking.log,user_id:0
 #: model:res.groups,name:law_tracking.group_user
 msgid "User"
 msgstr "Usuario"
@@ -590,16 +577,14 @@ msgid "Enclosure Treatment Detail"
 msgstr "Detalle de Tratamiento en Recinto"
 
 #. module: law_tracking
-#: view:law_tracking.legislature_member:0
-#: view:law_tracking.order_paper:0
+#: view:law_tracking.legislature_member:0 view:law_tracking.order_paper:0
 #: view:law_tracking.subscription:0
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: law_tracking
 #: field:law_tracking.legislature_member,chamber:0
-#: view:law_tracking.order_paper:0
-#: field:law_tracking.order_paper,chamber:0
+#: view:law_tracking.order_paper:0 field:law_tracking.order_paper,chamber:0
 #: field:res.partner,chamber:0
 msgid "Chamber"
 msgstr "Cámara"
@@ -634,8 +619,7 @@ msgid "Commission treatment"
 msgstr "Tratamiento en Comisión"
 
 #. module: law_tracking
-#: view:law_tracking.log:0
-#: field:law_tracking.log,name:0
+#: view:law_tracking.log:0 field:law_tracking.log,name:0
 msgid "Description"
 msgstr "Descripción"
 
@@ -646,8 +630,7 @@ msgid "Legislature Member"
 msgstr "Miembro de Legislatura"
 
 #. module: law_tracking
-#: view:law_tracking.subscription:0
-#: field:law_tracking.subscription,price:0
+#: view:law_tracking.subscription:0 field:law_tracking.subscription,price:0
 msgid "Price"
 msgstr "Precio"
 
@@ -675,8 +658,7 @@ msgid "On Treatment"
 msgstr "En Comisión"
 
 #. module: law_tracking
-#: view:law_tracking.legislature_member:0
-#: view:law_tracking.order_paper:0
+#: view:law_tracking.legislature_member:0 view:law_tracking.order_paper:0
 #: view:law_tracking.subscription:0
 msgid "To Draft"
 msgstr "A Borrador"
@@ -699,27 +681,22 @@ msgstr "Legislatura"
 #. module: law_tracking
 #: model:ir.model,name:law_tracking.model_law_tracking_law_project
 #: field:law_tracking.commission_treatment,law_project_id:0
-#: view:law_tracking.law_project:0
-#: view:law_tracking.subscription:0
+#: view:law_tracking.law_project:0 view:law_tracking.subscription:0
 #: field:law_tracking.subscription,law_project_id:0
 msgid "Law Project"
 msgstr "Proyecto de Ley"
 
 #. module: law_tracking
-#: view:law_tracking.block:0
-#: field:law_tracking.block,name:0
-#: view:law_tracking.law_project:0
-#: field:law_tracking.law_project,name:0
+#: view:law_tracking.block:0 field:law_tracking.block,name:0
+#: view:law_tracking.law_project:0 field:law_tracking.law_project,name:0
 #: view:law_tracking.law_project_document:0
 #: field:law_tracking.law_project_document,name:0
-#: view:law_tracking.legislature:0
-#: field:law_tracking.legislature,name:0
+#: view:law_tracking.legislature:0 field:law_tracking.legislature,name:0
 msgid "Name"
 msgstr "Nombre"
 
 #. module: law_tracking
-#: view:law_tracking.legislature:0
-#: field:law_tracking.legislature,country_id:0
+#: view:law_tracking.legislature:0 field:law_tracking.legislature,country_id:0
 msgid "Country"
 msgstr "País"
 
@@ -734,8 +711,7 @@ msgid "Is Commission?"
 msgstr "Es una Comisión?"
 
 #. module: law_tracking
-#: view:law_tracking.law_project:0
-#: field:law_tracking.law_project,law_number:0
+#: view:law_tracking.law_project:0 field:law_tracking.law_project,law_number:0
 msgid "Law Number"
 msgstr "Número de Ley"
 
@@ -764,10 +740,8 @@ msgid "Presenter"
 msgstr "Presentador"
 
 #. module: law_tracking
-#: view:law_tracking.log:0
-#: field:law_tracking.log,date:0
-#: view:law_tracking.order_paper:0
-#: field:law_tracking.order_paper,date:0
+#: view:law_tracking.log:0 field:law_tracking.log,date:0
+#: view:law_tracking.order_paper:0 field:law_tracking.order_paper,date:0
 msgid "Date"
 msgstr "Fecha"
 
@@ -781,4 +755,3 @@ msgstr "Responsable"
 #: model:ir.ui.menu,name:law_tracking.menu_commission_positions
 msgid "Commission Positions"
 msgstr "Posiciones de Comisiones"
-

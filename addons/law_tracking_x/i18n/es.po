@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.saas~3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-08 16:05+0000\n"
-"PO-Revision-Date: 2014-11-08 13:09-0300\n"
+"PO-Revision-Date: 2015-01-27 16:33-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1459,7 +1459,7 @@ msgstr ""
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_2
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_8
 msgid "Deputies Commission"
-msgstr "Comision Diputados"
+msgstr "Comisión Diputados"
 
 #. module: law_tracking_x
 #: field:res.users,partner_contracted_country_ids:0

@@ -29,7 +29,7 @@ class treatment_detail(osv.osv):
     """"""
     
     _inherit = 'law_tracking.treatment_detail'
-    _rec_name = 'note'
+    _rec_name = 'commission_treatment_id'
 
 
     _columns = {

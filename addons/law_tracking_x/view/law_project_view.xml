@@ -243,7 +243,7 @@
                                 <field name="summary"/>
                             </page>
                             <page string="Record" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
-                                <group col="4" attrs="{'invisible':[('user_is_employee','!=',True)]}">
+                                <group col="4" attrs="{'invisible':[('user_is_employee','!=',True)]}" groups="base.group_erp_manager">
                                     <field name="create_uid"/>
                                     <field name="create_date"/>
                                 </group>
