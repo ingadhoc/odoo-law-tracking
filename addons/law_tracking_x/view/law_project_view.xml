@@ -204,7 +204,7 @@
                             <field name="legislature_id" placeholder="Legislature" on_change="onchange_legislature(legislature_id)" />
                             <field name="law_project_type_id" placeholder="Entrance Chamber..."  on_change="onchange_type(law_project_type_id)" attrs="{'invisible': [('legislature_type','!=','bicameral')], 'required': [('legislature_type','=','bicameral')]}" options="{'no_open': True}"/>
                         </div>
-                        <div class="oe_right oe_button_box" attrs="{'invisible':[('user_subscription_id','!=',False)]}" name="buttons"> 
+                        <div class="oe_right oe_button_box" attrs="{'invisible':[('user_subscription_id','=',False)]}" name="buttons"> 
                             <label for="user_subscription_id" groups="base.group_portal" />
                             <!-- <field name="user_subscription_id" groups="base.group_portal" options='{"no_open": True}'/> -->
                             <field name="user_subscription_id" groups="base.group_portal" options='{"create": False, "safe": True}'/>
