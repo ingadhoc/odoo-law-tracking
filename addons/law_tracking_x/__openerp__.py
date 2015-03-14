@@ -108,6 +108,7 @@ Projects required:
           'view/commission_detail_view.xml',
           'view/res_country_view.xml',
           'view/subscription_view.xml',
+          'view/web_assets.xml',
           'wizard/portal_wizard_view.xml',
           # 'workflow/law_project_workflow.xml',
           'workflow/order_paper_workflow.xml',

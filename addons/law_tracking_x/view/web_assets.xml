@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Back-end assets: custom css -->
+        <template id="assets_backend" inherit_id="web.assets_backend" name="law_tracking">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/law_tracking_x/static/src/css/style.css"/>
+                <link rel="stylesheet" href="/law_tracking_x/static/src/css/note.css"/>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>
