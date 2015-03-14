@@ -27,9 +27,9 @@
 <openerp>
     <data>
 
-        <record id="law_tracking.menu_follow_up" model="ir.ui.menu">
+<!--         <record id="law_tracking.menu_follow_up" model="ir.ui.menu">
             <field name="groups" eval="[(6, 0, [ref('base.group_portal')])]"/>
-        </record>
+        </record> -->
 
         <record id="law_tracking.action_law_tracking_partner_companies" model="ir.actions.act_window">
             <field name="view_mode">kanban,tree,form</field>
@@ -197,7 +197,7 @@
                     <field name="chamber"/>
                     <field name="block_id"/>
                 </field>
-                <field name="country" position="replace"/>
+                <field name="country_id" position="replace"/>
                 <xpath expr="//div[@class='oe_kanban_partner_categories']//span[@class='oe_kanban_list_many2many']//field[@name='category_id']" position="replace">
                     <field name="law_category_ids"/>
                     <li><field name="legislature_id"/></li>
@@ -220,7 +220,7 @@
                     <field name="chamber" invisible="'from_commissions' not in context" />
                     <field name="block_id" invisible="'from_legislators' not in context" />
                     <field name="state_id" invisible="'from_legislators' not in context" />
-                    <field name="country" invisible="True" />
+                    <field name="country_id" invisible="True" />
                     <!-- Lo querian invisible en todos -->
                     <!-- <field name="country" invisible="'from_legislators' not in context" /> -->
                 </tree>                

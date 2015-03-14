@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    
+#
 #    Copyright (C) 2013 Agrihold - Adhoc - Moldeo.
 #    No email
 #
@@ -21,10 +21,10 @@
 ##############################################################################
 
 
-{   'author': 'Sistemas ADHOC',
+{'author': 'Sistemas ADHOC',
     'demo_xml': [
     ],
-    'depends': ['openerp_portal_documentation','portal_law_tracking',],
+    'depends': ['help_doc_portal', 'portal_law_tracking', ],
     'description': 'Law Tracking Documentation',
     'init_xml': [],
     'installable': True,
@@ -33,7 +33,7 @@
     'test': [],
     'update_xml': [
         'document_page_data.xml',
-        ],
+    ],
     'version': 'No version',
     'auto_install': True,
     'category': 'Hidden',

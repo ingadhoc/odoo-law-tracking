@@ -5,7 +5,7 @@
         <menuitem id="menu_law_tracking_portal_documentation" 
                   sequence="90"
                   name="Info Law"
-                  parent="openerp_documentation.menu_documentation_main"
+                  parent="help_doc.menu_documentation_main"
                   />
 
 <!-- Customer -->

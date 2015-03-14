@@ -41,7 +41,7 @@
     'depends': [u'law_tracking',
       # da error, por lo menos en res_partner_view, busando ΅legislature_member_id' 
       # 'web_m2x_options',
-      'openerp_documentation',
+      'help_doc',
       'l10n_ar_states',
       'base_action_rule',
       'cron_run_manually',
