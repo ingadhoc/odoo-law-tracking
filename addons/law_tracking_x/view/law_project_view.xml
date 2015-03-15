@@ -304,8 +304,7 @@
                                 </notebook>
                             </page>   --> 
                             <page string="Documents" attrs="{'invisible':[('user_is_employee','!=',True),('user_is_subscriptor','!=',True)]}">
-                                    <field name="law_project_document_ids"/>
-                                    <!-- <field name="attachment_ids"  widget="many2many_binary"/> -->
+                                <field name="law_project_document_ids"/>
                             </page>
                             <page string="Subscriptions" groups="base.group_user">
                                 <field name="subscription_ids"/>
