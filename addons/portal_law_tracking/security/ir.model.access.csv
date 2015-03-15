@@ -16,4 +16,4 @@ access_res_partner_bank group_portal,res_partner_bank group_portal,base.model_re
 access_law_tracking_subscription,law_tracking.subscription,law_tracking.model_law_tracking_subscription,base.group_portal,1,1,1,0
 access_law_tracking_log,law_tracking.log,law_tracking.model_law_tracking_log,base.group_portal,1,1,1,0
 access_law_tracking_law_project_document_portal,law_tracking.law_project_document.portal,law_tracking.model_law_tracking_law_project_document,base.group_portal,1,0,0,0
-access_res_groups group_all,res_groups group_all,,base.model_res_groups,1,0,0,0
+access_res_groups group_all,res_groups group_all,base.model_res_groups,,1,0,0,0
