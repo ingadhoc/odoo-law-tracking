@@ -178,9 +178,8 @@ class order_paper(osv.osv):
         return {'value': v}                  
 
     def action_notify(self, cr, uid, ids, context=None, *args):
-        if context is None:
-            context = {} 
-        context['order_paper_ids'] = ids             
+        context = dict(context or {})
+        context['order_paper_ids'] = ids       
         project_ids = []
         for order_paper in self.browse(cr, uid, ids):
             for treatment in order_paper.treatment_detail_ids:
@@ -191,8 +190,7 @@ class order_paper(osv.osv):
         return True      
   
     def action_treated(self, cr, uid, ids, context=None, *args):
-        if context is None:
-            context = {}  
+        context = dict(context or {})
         context['order_paper_ids'] = ids
         project_ids = []
         for order_paper in self.browse(cr, uid, ids):
