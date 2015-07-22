@@ -115,6 +115,9 @@ Projects required:
           'workflow/subscription_workflow.xml',
           'security/ir.model.access.csv',
           'security/law_tracking_group.xml',
+          'data/subscription_track.xml',
+          'data/order_paper_track.xml',
+          'data/commission_treatment_track.xml',
     ],
     'init_xml': [   
 
