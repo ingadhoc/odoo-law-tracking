@@ -23,7 +23,7 @@
 
 {
     'name': "Clinic Customization web client",
-    'author': "Sistemas ADHOC",
+    'author': "ADHOC SA",
     'category': "Web",
     'description': """
     Some customizations for OpenERP web client

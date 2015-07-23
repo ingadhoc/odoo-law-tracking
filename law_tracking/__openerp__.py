@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {   'active': False,
-    'author': u'Sistemas ADHOC',
+    'author': u'ADHOC SA',
     'category': u'base.module_category_knowledge_management',
     'data': [   u'security/law_tracking_group.xml',
                 u'view/legislature_view.xml',

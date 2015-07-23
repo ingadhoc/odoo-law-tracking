@@ -21,7 +21,7 @@
 ##############################################################################
 
 
-{'author': 'Sistemas ADHOC',
+{'author': 'ADHOC SA',
     'demo_xml': [
     ],
     'depends': ['help_doc', 'law_tracking', ],

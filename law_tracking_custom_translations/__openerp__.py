@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Saas Manager
-#    Copyright (C) 2013 Sistemas ADHOC
+#    Copyright (C) 2013 ADHOC SA
 #    No email
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@
 
 
 {   'active': False,
-    'author': u'Sistemas ADHOC',
+    'author': u'ADHOC SA',
     'category': u'base.module_category_knowledge_management',
     'demo_xml': [
       ],
