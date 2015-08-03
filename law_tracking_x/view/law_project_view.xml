@@ -160,9 +160,9 @@
                     <field name="entry_date"/>
                     <field name="summary"/>
                     <field name="law_project_document_ids"/>
-                    <field name="law_category_ids"/>
-                    <field name="law_category_ids" string="Categorías 2"/>
-                    <field name="law_category_ids" string="Categorías 3"/>
+                    <field name="law_category_ids" operator="=ilike"/>
+                    <field name="law_category_ids" operator="=ilike" string="Categorías 2"/>
+                    <field name="law_category_ids" operator="=ilike" string="Categorías 3"/>
                     <field name="subscriptor_ids"/>
                     <!-- lo hacemos asi para que no muestre duplicados y para que no de error -->
                     <field name="stage_id" domain="" widget="char" filter_domain="[('stage_id.name','ilike',self)]"/>
