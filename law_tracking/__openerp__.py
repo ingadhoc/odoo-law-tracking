@@ -57,6 +57,6 @@
     'license': 'AGPL-3',
     'name': u'Law Follow Up',
     'test': [],
-    'version': u'1.1',
+    'version': '8.0.1.1.0',
     'website': ''}
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

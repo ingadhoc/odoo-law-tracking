@@ -42,7 +42,7 @@ Law Tracking custom translations
     'init_xml': [   
 
     ],    
-    'version': u'1.1',
+    'version': '8.0.1.1.0',
     'css': [
         'static/src/css/note.css',
         ],
