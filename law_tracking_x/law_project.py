@@ -703,7 +703,10 @@ class law_project(osv.osv):
             new_vals = {
                 'user_id': uid,
                 'date': date,
-                'name': law_project.stage_id.name + '-->' + self.pool.get('law_tracking.stage').browse(cr, uid, new_stage, context=context).name or '',
+                'name': "%s --> %s" % (
+                    law_project.stage_id.name or '',
+                    self.pool.get('law_tracking.stage').browse(
+                        cr, uid, new_stage, context=context).name or ''),
                 'law_project_id': law_project.id,
             }
             self.pool.get('law_tracking.log').create(cr, uid, new_vals, context=context)
