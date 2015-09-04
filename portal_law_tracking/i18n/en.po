@@ -10,51 +10,51 @@ msgstr ""
 "POT-Creation-Date: 2015-09-04 15:53+0000\n"
 "PO-Revision-Date: 2015-09-01 19:02+0000\n"
 "Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-law-tracking-8-0/language/es/)\n"
+"Language-Team: English (http://www.transifex.com/adhoc/ingadhoc-odoo-law-tracking-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: portal_law_tracking
 #: model:ir.ui.menu,name:portal_law_tracking.menu_commissions
 msgid "Commissions"
-msgstr "Comisiones"
+msgstr "Commissions"
 
 #. module: portal_law_tracking
 #: model:ir.ui.menu,name:portal_law_tracking.menu_portal_law
 msgid "Law Projects"
-msgstr "Proyectos de Ley"
+msgstr "Law Projects"
 
 #. module: portal_law_tracking
 #: model:ir.ui.menu,name:portal_law_tracking.menu_legislators
 msgid "Legislators"
-msgstr "Legisladores"
+msgstr "Legislators"
 
 #. module: portal_law_tracking
 #: model:ir.ui.menu,name:portal_law_tracking.menu_legislatures
 msgid "Legislatures"
-msgstr "Legislaturas"
+msgstr "Legislatures"
 
 #. module: portal_law_tracking
 #: model:ir.ui.menu,name:portal_law_tracking.menu_legislatures_info
 msgid "Legislatures Info"
-msgstr "Información de Legislaturas"
+msgstr "Legislatures Info"
 
 #. module: portal_law_tracking
 #: model:ir.actions.act_window,name:portal_law_tracking.action_portal_law_project_subscribed_law_projects
 #: model:ir.ui.menu,name:portal_law_tracking.menu_subscribed_law_projects
 msgid "Subscribed Law Projects"
-msgstr "Proyectos de Ley Suscriptos"
+msgstr "Subscribed Law Projects"
 
 #. module: portal_law_tracking
 #: view:res.partner:portal_law_tracking.view_res_partner_portal_law_tracking_form
 msgid "True"
-msgstr "Verdadero"
+msgstr "True"
 
 #. module: portal_law_tracking
 #: model:ir.actions.act_window,name:portal_law_tracking.action_portal_law_project_unsubscribed_law_projects
 #: model:ir.ui.menu,name:portal_law_tracking.menu_unsubscribed_law_projects
 msgid "Unsubscribed Law Projects"
-msgstr "Proyectos de Ley sin Suscripción"
+msgstr "Unsubscribed Law Projects"

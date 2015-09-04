@@ -3,19 +3,18 @@
 # * law_tracking_x
 # 
 # Translators:
-# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: odoo-law-tracking (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-04 15:53+0000\n"
-"PO-Revision-Date: 2015-09-04 16:04+0000\n"
-"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-law-tracking-8-0/language/es/)\n"
+"PO-Revision-Date: 2015-09-04 15:53+0000\n"
+"Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
+"Language-Team: English (http://www.transifex.com/adhoc/ingadhoc-odoo-law-tracking-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: law_tracking_x
@@ -348,7 +347,7 @@ msgid ""
 "&nbsp;&nbsp;${object.summary}\n"
 "</pre>\n"
 "</div>\n"
-msgstr "\n<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n<p>\nEstimado,\n</p>\n<p>\nEste es un mail para comunicarle que el proyecto de ley <strong>${object.name} (${object.reference})</strong> correspondiente a <strong>${object.legislature_id.name},</strong> ha cambiado su estado a: <strong>${object.stage_id.name}.</strong>\n</p>\n<p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n   &nbsp;&nbsp;Proyecto: <strong>${object.name}</strong><br>\n   &nbsp;&nbsp;Referencia: <strong>${object.reference}</strong><br>\n   &nbsp;&nbsp;Legislatura: <strong>${object.legislature_id.name}</strong><br>\n   % if object.stage_id.name==\"Promulgado\":\n   &nbsp;&nbsp;Número de Ley: <strong>${object.law_number}</strong><br>\n   % endif\n   % if object.entry_date:\n   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.entry_date,\"%d/%m/%Y\")}</strong><br>\n   % endif\n   &nbsp;&nbsp;Categorías: <strong>\n   % for category in object.law_category_ids:\n    ${category.name}, \n   % endfor\n    </strong><br>\n   % if object.legislature_type=='bicameral':\n   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_type_id.name}</strong><br>\n   % endif\n   &nbsp;&nbsp;Link al Proyecto: <strong><a href=\"${object.get_actual_project_url()}\">Acceder aquí</a></strong><br>\n</p>\n<pre style=\"border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">&nbsp;&nbsp;Resumen:\n&nbsp;&nbsp;${object.summary}\n</pre>\n</div>\n"
+msgstr "\n<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n<p>\nEstimado,\n</p>\n<p>\nEste es un mail para comunicarle que el proyecto de ley <strong>${object.name} (${object.reference})</strong> correspondiente a <strong>${object.legislature_id.name},</strong> ha cambiado su estado a: <strong>${object.stage_id.name}.</strong>\n</p>\n<p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n   &nbsp;&nbsp;Proyecto: <strong>${object.name}</strong><br />\n   &nbsp;&nbsp;Referencia: <strong>${object.reference}</strong><br />\n   &nbsp;&nbsp;Legislatura: <strong>${object.legislature_id.name}</strong><br />\n   % if object.stage_id.name==\"Promulgado\":\n   &nbsp;&nbsp;Número de Ley: <strong>${object.law_number}</strong><br />\n   % endif\n   % if object.entry_date:\n   &nbsp;&nbsp;Fecha de ingreso: <strong>${object.format_date(object.entry_date,\"%d/%m/%Y\")}</strong><br />\n   % endif\n   &nbsp;&nbsp;Categorías: <strong>\n   % for category in object.law_category_ids:\n    ${category.name}, \n   % endfor\n    </strong><br />\n   % if object.legislature_type=='bicameral':\n   &nbsp;&nbsp;Cámara de entrada: <strong>${object.law_project_type_id.name}</strong><br />\n   % endif\n   &nbsp;&nbsp;Link al Proyecto: <strong><a href=\"${object.get_actual_project_url()}\">Acceder aquí</a></strong><br />\n</p>\n<pre  style=\"border-left: 1px solid #8e0000; margin-left: 30px; font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n&nbsp;&nbsp;Resumen:\n&nbsp;&nbsp;${object.summary}\n</pre>\n</div>\n"
 
 #. module: law_tracking_x
 #: model:email.template,body_html:law_tracking_x.project_suggestion_mail
@@ -474,12 +473,12 @@ msgstr "(copy)"
 #: selection:law_tracking.commission_detail,state:0
 #: field:law_tracking.law_project,open:0
 msgid "Active"
-msgstr "Activo"
+msgstr "Active"
 
 #. module: law_tracking_x
 #: view:law_tracking.stage:law_tracking_x.law_tracking_stage_edit
 msgid "Add a description..."
-msgstr "Agregar una descripción..."
+msgstr "Add a description..."
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.set_password_email
@@ -491,55 +490,55 @@ msgstr "Bienvenido a Info Leyes!"
 #: field:law_tracking.law_project,block_id:0
 #: field:law_tracking.legislature_member,block_id:0
 msgid "Block"
-msgstr "Bloque"
+msgstr "Block"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,block_representatives:0
 #: field:law_tracking.legislature_member,block_representatives:0
 msgid "Block Rep."
-msgstr "Rep. de Bloque"
+msgstr "Block Rep."
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,block_representatives_perc:0
 #: field:law_tracking.legislature_member,block_representatives_perc:0
 msgid "Block Rep. %%"
-msgstr "% de Representantes del Bloque"
+msgstr "Block Rep. %%"
 
 #. module: law_tracking_x
 #: help:law_tracking.law_project,block_representatives:0
 #: help:law_tracking.legislature_member,block_representatives:0
 msgid "Block Representatives"
-msgstr "Representantes del Bloque"
+msgstr "Block Representatives"
 
 #. module: law_tracking_x
 #: field:law_tracking.legislature_member,total_members:0
 msgid "Blocks Total"
-msgstr "Total Bloques"
+msgstr "Blocks Total"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,total_members:0
 msgid "Blocks Total."
-msgstr "Total Bloque"
+msgstr "Blocks Total."
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_filter
 msgid "By Attribute"
-msgstr "Por atributo"
+msgstr "By Attribute"
 
 #. module: law_tracking_x
 #: model:law_tracking.project.type,name:law_tracking_x.law_tracking_project_type_2
 msgid "By Deputies"
-msgstr "Por Diputados"
+msgstr "By Deputies"
 
 #. module: law_tracking_x
 #: model:law_tracking.project.type,name:law_tracking_x.law_tracking_project_type_3
 msgid "By Senators"
-msgstr "Por Senadores"
+msgstr "By Senators"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_filter
 msgid "By object"
-msgstr "Por Objeto"
+msgstr "By object"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.project_status_change_mail
@@ -552,14 +551,14 @@ msgstr "Cambio de estado del Proyecto de Ley ${object.name} - ${object.legislatu
 #: view:law_tracking.law_project.change_stage:law_tracking_x.law_project_change_stage_form
 #: view:law_tracking.legislature_member:law_tracking_x.view_legislature_member_from_partner_form
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Cancel"
 
 #. module: law_tracking_x
 #: selection:law_tracking.commission_detail,state:0
 #: selection:law_tracking.law_project,user_subscription_state:0
 #: selection:law_tracking.stage,state:0
 msgid "Cancelled"
-msgstr "Cancelado"
+msgstr "Cancelled"
 
 #. module: law_tracking_x
 #: code:addons/law_tracking_x/wizard/portal_wizard.py:69
@@ -567,76 +566,76 @@ msgstr "Cancelado"
 msgid ""
 "Cannot send email: no outgoing email server configured.\n"
 "You can configure it under Settings/General Settings."
-msgstr "No se puede enviar correo: no existe servidor de correo configurado. Puede configurarlo desde Configuracion/Configuraciones Generales"
+msgstr "Cannot send email: no outgoing email server configured.\nYou can configure it under Settings/General Settings."
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,law_category_ids:0
 #: field:law_tracking.law_project,law_category_ids_copy:0
 #: field:res.partner,law_category_ids:0
 msgid "Categories"
-msgstr "Categorías"
+msgstr "Categories"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Categories..."
-msgstr "Categorías..."
+msgstr "Categories..."
 
 #. module: law_tracking_x
 #: field:law_tracking.category,name:0
 msgid "Category Name"
-msgstr "Nombre de categoría"
+msgstr "Category Name"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_filter
 msgid "Categorías 2"
-msgstr ""
+msgstr "Categorías 2"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_filter
 msgid "Categorías 3"
-msgstr ""
+msgstr "Categorías 3"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project.change_stage:law_tracking_x.law_project_change_stage_form
 msgid "Chage Stage"
-msgstr "Cambiar Etapa"
+msgstr "Chage Stage"
 
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Chamber"
-msgstr "Cámara"
+msgstr "Chamber"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Change Stage"
-msgstr "Cambiar Etapa"
+msgstr "Change Stage"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project.change_stage:law_tracking_x.law_project_change_stage_form
 msgid "Change State"
-msgstr "Cambiar Etapa"
+msgstr "Change State"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_16
 msgid "Check Parlamentary Status Lost"
-msgstr "Controlar pérdida de Estado Parlamentario"
+msgstr "Check Parlamentary Status Lost"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,child_ids:0
 msgid "Child Categories"
-msgstr "Categorías Hijo"
+msgstr "Child Categories"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_commission_detail
 #: view:law_tracking.commission_detail:law_tracking_x.view_law_tracking_commission_detail_tree
 msgid "Commission Detail"
-msgstr "Detalle de Comisión"
+msgstr "Commission Detail"
 
 #. module: law_tracking_x
 #: sql_constraint:law_tracking.commission_treatment:0
 msgid "Commission must be unique"
-msgstr "La Comisión debe ser única"
+msgstr "Commission must be unique"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
@@ -644,12 +643,12 @@ msgstr "La Comisión debe ser única"
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 #: field:res.partner,commision_detail_ids:0
 msgid "Commissions"
-msgstr "Comisiones"
+msgstr "Commissions"
 
 #. module: law_tracking_x
 #: model:law_tracking.category,name:law_tracking_x.law_category_05
 msgid "Comunicación"
-msgstr ""
+msgstr "Comunicación"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.subscription_unsubscription_mail
@@ -668,7 +667,7 @@ msgstr "Confirmación de Suscripción al Proyecto de Ley ${object.law_project_id
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Contacts"
-msgstr "Contactos"
+msgstr "Contacts"
 
 #. module: law_tracking_x
 #: field:res.country,contratable:0
@@ -678,12 +677,12 @@ msgstr "Contratable"
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_res_country
 msgid "Country"
-msgstr "País"
+msgstr "Country"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_res_country_state
 msgid "Country state"
-msgstr "Provincia"
+msgstr "Country state"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,create_uid:0
@@ -691,7 +690,7 @@ msgstr "Provincia"
 #: field:law_tracking.project.type,create_uid:0
 #: field:law_tracking.stage,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Created by"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,create_date:0
@@ -699,12 +698,12 @@ msgstr ""
 #: field:law_tracking.project.type,create_date:0
 #: field:law_tracking.stage,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Created on"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project.change_stage,date:0
 msgid "Date"
-msgstr "Fecha"
+msgstr "Date"
 
 #. module: law_tracking_x
 #: code:addons/law_tracking_x/commission_treatment.py:45
@@ -712,172 +711,172 @@ msgstr "Fecha"
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 #, python-format
 msgid "Deputies"
-msgstr "Diputados"
+msgstr "Deputies"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_2
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_8
 msgid "Deputies Commission"
-msgstr "Comisión Diputados"
+msgstr "Deputies Commission"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_commission_treatment
 msgid "Deputies Commission Treatment"
-msgstr "Tratamiento en Comisión de Diputados"
+msgstr "Deputies Commission Treatment"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_10
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_4
 msgid "Deputies Enclosure"
-msgstr "Recinto Diputados"
+msgstr "Deputies Enclosure"
 
 #. module: law_tracking_x
 #: field:law_tracking.stage,description:0
 msgid "Description"
-msgstr "Descripción"
+msgstr "Description"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_17
 msgid "Disapproved"
-msgstr "Desaprobado"
+msgstr "Disapproved"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Documents"
-msgstr "Documentos"
+msgstr "Documents"
 
 #. module: law_tracking_x
 #: selection:law_tracking.stage,state:0
 msgid "Done"
-msgstr "Hecho"
+msgstr "Done"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_7
 msgid "Draft"
-msgstr "Borrador"
+msgstr "Draft"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Enclosure Treatment"
-msgstr "Tratamiento en Recinto"
+msgstr "Enclosure Treatment"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,law_project_type_id:0
 #: field:law_tracking.law_project.change_stage,law_project_type_id:0
 msgid "Entrance Chamber"
-msgstr "Cámara de Ingreso"
+msgstr "Entrance Chamber"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Entrance Chamber..."
-msgstr "Cámara de Entrada..."
+msgstr "Entrance Chamber..."
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_followed_project_kanban
 msgid "Entry Date"
-msgstr "Fecha de Ingreso"
+msgstr "Entry Date"
 
 #. module: law_tracking_x
 #: model:law_tracking.category,name:law_tracking_x.law_category_01
 msgid "Envases"
-msgstr ""
+msgstr "Envases"
 
 #. module: law_tracking_x
 #: constraint:law_tracking.commission_treatment:0
 msgid "Error: All commission treatments should be from the same commission"
-msgstr "Error: Todos los tratamientos de comisión deben ser de la misma comisión"
+msgstr "Error: All commission treatments should be from the same commission"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Executive"
-msgstr "Poder Ejecutivo"
+msgstr "Executive"
 
 #. module: law_tracking_x
 #: selection:law_tracking.commission_detail,state:0
 #: view:law_tracking.legislature_member:law_tracking_x.view_legislature_member_from_partner_form
 msgid "Finish"
-msgstr "Finalizado"
+msgstr "Finish"
 
 #. module: law_tracking_x
 #: field:law_tracking.stage,fold:0
 msgid "Folded in Kanban View"
-msgstr "Doblado en vista Kanban"
+msgstr "Folded in Kanban View"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_filter
 msgid "Followed"
-msgstr "Seguido"
+msgstr "Followed"
 
 #. module: law_tracking_x
 #: view:res.users:law_tracking_x.view_users_form_simple_modif_law
 msgid "Following Preferences"
-msgstr "Preferencias de Seguimiento"
+msgstr "Following Preferences"
 
 #. module: law_tracking_x
 #: model:law_tracking.category,name:law_tracking_x.law_category_04
 msgid "Forestación"
-msgstr ""
+msgstr "Forestación"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,complete_name:0
 msgid "Full Name"
-msgstr "Nombre completo"
+msgstr "Full Name"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,has_subscriptors:0
 msgid "Has Subscriptors"
-msgstr "Posee Suscriptores"
+msgstr "Has Subscriptors"
 
 #. module: law_tracking_x
 #: field:law_tracking.commission_treatment,has_treatments:0
 msgid "Has Treatments?"
-msgstr "Tiene Tratamientos?"
+msgstr "Has Treatments?"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,id:0
 #: field:law_tracking.law_project.change_stage,id:0
 #: field:law_tracking.project.type,id:0 field:law_tracking.stage,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: law_tracking_x
 #: selection:law_tracking.stage,state:0
 msgid "In Progress"
-msgstr "En Progreso"
+msgstr "In Progress"
 
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_law_tracking_partner_filter
 #: field:res.partner,inactive:0
 msgid "Inactive"
-msgstr ""
+msgstr "Inactive"
 
 #. module: law_tracking_x
 #: help:res.partner,inactive:0
 msgid ""
 "Inactive Legislators are the ones that doesn't have any legislature function"
 " 'active'"
-msgstr ""
+msgstr "Inactive Legislators are the ones that doesn't have any legislature function 'active'"
 
 #. module: law_tracking_x
 #: code:addons/law_tracking_x/law_project.py:501
 #, python-format
 msgid "Information Requested"
-msgstr "Información Solicitada"
+msgstr "Information Requested"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Instances"
-msgstr "Instancias"
+msgstr "Instances"
 
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Is a Company?"
-msgstr "¿Es una empresa?"
+msgstr "Is a Company?"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Judiciary"
-msgstr "Poder Judicial"
+msgstr "Judiciary"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,write_uid:0
@@ -885,7 +884,7 @@ msgstr "Poder Judicial"
 #: field:law_tracking.project.type,write_uid:0
 #: field:law_tracking.stage,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Last Updated by"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,write_date:0
@@ -893,108 +892,108 @@ msgstr ""
 #: field:law_tracking.project.type,write_date:0
 #: field:law_tracking.stage,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Last Updated on"
 
 #. module: law_tracking_x
 #: model:ir.actions.act_window,name:law_tracking_x.action_law_category
 #: model:ir.ui.menu,name:law_tracking_x.menu_law_category
 msgid "Law Categories"
-msgstr "Categorías de ley"
+msgstr "Law Categories"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_law_project
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 #: field:law_tracking.treatment_detail,law_project_id:0
 msgid "Law Project"
-msgstr "Proyecto de Ley"
+msgstr "Law Project"
 
 #. module: law_tracking_x
 #: model:ir.actions.act_window,name:law_tracking_x.law_project_change_stage_action
 #: model:ir.model,name:law_tracking_x.model_law_tracking_law_project_change_stage
 msgid "Law Project Change Stage"
-msgstr "Cambiar Etapa de Proyecto de Ley"
+msgstr "Law Project Change Stage"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_stage
 msgid "Law Project Stage"
-msgstr "Etapa de proyecto de ley"
+msgstr "Law Project Stage"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_project_type
 msgid "Law Project Type"
-msgstr "Tipo de Proyecto de Ley"
+msgstr "Law Project Type"
 
 #. module: law_tracking_x
 #: model:ir.actions.act_window,name:law_tracking_x.law_tracking_project_type_action
 #: model:ir.ui.menu,name:law_tracking_x.law_tracking_project_type_menu
 msgid "Law Project Types"
-msgstr "Tipos de Proyectos de Ley"
+msgstr "Law Project Types"
 
 #. module: law_tracking_x
 #: field:law_tracking.order_paper,law_projects:0
 #: field:law_tracking.stage,law_project_ids:0
 msgid "Law Projects"
-msgstr "Proyectos de Ley"
+msgstr "Law Projects"
 
 #. module: law_tracking_x
 #: view:law_tracking.category:law_tracking_x.view_law_tracking_category_list
 #: view:law_tracking.category:law_tracking_x.view_law_tracking_category_tree
 msgid "Law Tracking Categories"
-msgstr "Categorías de Seguimiento de proyectos de Ley"
+msgstr "Law Tracking Categories"
 
 #. module: law_tracking_x
 #: view:law_tracking.category:law_tracking_x.view_law_tracking_category_form
 msgid "Law Tracking Category"
-msgstr "Categoría de Seguimiento de Proyecto de ley"
+msgstr "Law Tracking Category"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,parent_left:0
 msgid "Left parent"
-msgstr "Padre izquierdo"
+msgstr "Left parent"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Legislator"
-msgstr "Legislador"
+msgstr "Legislator"
 
 #. module: law_tracking_x
 #: field:law_tracking.commission_detail,legislature_id:0
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Legislature"
-msgstr "Legislatura"
+msgstr "Legislature"
 
 #. module: law_tracking_x
 #: field:law_tracking.order_paper,legislature_type:0
 #: field:res.partner,legislature_type:0
 msgid "Legislature Type"
-msgstr "Tipo de Legislatura"
+msgstr "Legislature Type"
 
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Legislature..."
-msgstr "Legislatura..."
+msgstr "Legislature..."
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_legislature
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Legislatures"
-msgstr "Legislaturas"
+msgstr "Legislatures"
 
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Members"
-msgstr "Miembros"
+msgstr "Members"
 
 #. module: law_tracking_x
 #: model:law_tracking.category,name:law_tracking_x.law_category_02
 msgid "Minería"
-msgstr ""
+msgstr "Minería"
 
 #. module: law_tracking_x
 #: code:addons/law_tracking_x/law_project.py:501
 #, python-format
 msgid "More information has been requested."
-msgstr "Se ha solicitado más información."
+msgstr "More information has been requested."
 
 #. module: law_tracking_x
 #: field:law_tracking.commission_treatment,name:0
@@ -1003,23 +1002,23 @@ msgstr "Se ha solicitado más información."
 #: field:law_tracking.project.type,name:0
 #: field:law_tracking.subscription,name:0
 msgid "Name"
-msgstr "Nombre"
+msgstr "Name"
 
 #. module: law_tracking_x
 #: selection:law_tracking.stage,state:0
 msgid "New"
-msgstr "Nuevo"
+msgstr "New"
 
 #. module: law_tracking_x
 #: code:addons/law_tracking_x/law_project.py:640
 #, python-format
 msgid "No partner type \"is company\" related for current user!"
-msgstr "Ningún tipo de partner \"is company\" relacionado para el usuario actual"
+msgstr "No partner type \"is company\" related for current user!"
 
 #. module: law_tracking_x
 #: view:law_tracking.order_paper:law_tracking_x.view_law_tracking_order_paper_form
 msgid "Notify Agenda"
-msgstr "Notificar Agenda"
+msgstr "Notify Agenda"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.subscription_requisition_mail
@@ -1032,84 +1031,84 @@ msgstr "Nueva solicitud de Suscripción al Proyecto de Ley ${object.law_project_
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_order_paper
 msgid "Order Paper"
-msgstr "Agenda del día"
+msgstr "Order Paper"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,enclosure_treatment_detail_ids:0
 #: field:law_tracking.law_project,senators_treatment_detail_ids:0
 msgid "Order Papers"
-msgstr "Agendas del día"
+msgstr "Order Papers"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Otros"
-msgstr ""
+msgstr "Otros"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,parent_id:0
 msgid "Parent Category"
-msgstr "Categoría Padre"
+msgstr "Parent Category"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_12
 msgid "Parliamentary Status Lost"
-msgstr "Estado parlamentario perdido"
+msgstr "Parliamentary Status Lost"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Participation"
-msgstr "Participación"
+msgstr "Participation"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_res_partner
 #: field:law_tracking.commission_detail,partner_id:0
 msgid "Partner"
-msgstr "Empresa"
+msgstr "Partner"
 
 #. module: law_tracking_x
 #: field:res.users,partner_contracted_country_ids:0
 msgid "Partner Contracted Countries"
-msgstr "Países contratados por el Cliente"
+msgstr "Partner Contracted Countries"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_category
 msgid "Partner Tags"
-msgstr "Etiquetas de Clientes"
+msgstr "Partner Tags"
 
 #. module: law_tracking_x
 #: field:law_tracking.category,partner_ids:0
 msgid "Partners"
-msgstr "Clientes"
+msgstr "Partners"
 
 #. module: law_tracking_x
 #: selection:law_tracking.stage,state:0
 msgid "Pending"
-msgstr "Pediente"
+msgstr "Pending"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Popular Initiative"
-msgstr "Iniciativa Popular"
+msgstr "Popular Initiative"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_portal_wizard_user
 msgid "Portal User Config"
-msgstr "Configuración usuario portal"
+msgstr "Portal User Config"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,presented_by:0
 msgid "Presented By"
-msgstr "Presentado Por"
+msgstr "Presented By"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Presenter"
-msgstr "Presentador"
+msgstr "Presenter"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_15
 msgid "Promulgated"
-msgstr "Promulgado"
+msgstr "Promulgated"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.project_order_paper_notification_mail
@@ -1121,42 +1120,42 @@ msgstr "Próximo tratamiento del Proyecto de Ley ${object.name} - ${object.get_t
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Record"
-msgstr "Registro"
+msgstr "Record"
 
 #. module: law_tracking_x
 #: sql_constraint:law_tracking.treatment_detail:0
 msgid "Record must be unique for an order paper on a commission"
-msgstr "El registro debe de ser único para una Agenda del Día en una comisión"
+msgstr "Record must be unique for an order paper on a commission"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Reference"
-msgstr "Referencia"
+msgstr "Reference"
 
 #. module: law_tracking_x
 #: sql_constraint:law_tracking.law_project:0
 msgid "Reference must be unique"
-msgstr "La referencia debe ser única"
+msgstr "Reference must be unique"
 
 #. module: law_tracking_x
 #: field:law_tracking.stage,state:0
 msgid "Related Status"
-msgstr "Estado relacionado"
+msgstr "Related Status"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Require More Information"
-msgstr "Requerir Más Información"
+msgstr "Require More Information"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Require Subscription"
-msgstr "Requerir Suscripción"
+msgstr "Require Subscription"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,user_subscription_state:0
 msgid "Required"
-msgstr "Requerido"
+msgstr "Required"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.project_order_paper_treated_mail
@@ -1168,17 +1167,17 @@ msgstr "Resumen de tratamiento del Proyecto de Ley ${object.name} - ${object.get
 #. module: law_tracking_x
 #: field:law_tracking.category,parent_right:0
 msgid "Right parent"
-msgstr "Padre derecho"
+msgstr "Right parent"
 
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Sales & Purchases"
-msgstr "Ventas & Compras"
+msgstr "Sales & Purchases"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_13
 msgid "Sanctioned"
-msgstr "Sancionado"
+msgstr "Sanctioned"
 
 #. module: law_tracking_x
 #: code:addons/law_tracking_x/commission_treatment.py:47
@@ -1187,44 +1186,44 @@ msgstr "Sancionado"
 #: field:law_tracking.legislature,sen_legislature_member_ids:0
 #, python-format
 msgid "Senators"
-msgstr "Senadores"
+msgstr "Senators"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_1
 msgid "Senators Commision"
-msgstr "Comisión Senadores"
+msgstr "Senators Commision"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_9
 msgid "Senators Commission"
-msgstr "Comisión de Senadores"
+msgstr "Senators Commission"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,sen_commission_treatment_ids:0
 msgid "Senators Commission Treatment"
-msgstr "Tratamiento en Comisión Senadores"
+msgstr "Senators Commission Treatment"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_11
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_3
 msgid "Senators Enclosure"
-msgstr "Recinto Senadores"
+msgstr "Senators Enclosure"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Send Suggestions"
-msgstr "Enviar Sugerencias"
+msgstr "Send Suggestions"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,sequence:0
 #: field:law_tracking.stage,sequence:0
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr "Sequence"
 
 #. module: law_tracking_x
 #: view:law_tracking.order_paper:law_tracking_x.view_law_tracking_order_paper_form
 msgid "Set Treated"
-msgstr ""
+msgstr "Set Treated"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.law_project_more_information_request
@@ -1240,12 +1239,12 @@ msgstr "Solicitud de más Información del Proyecto de Ley ${object.name} - ${ob
 #: view:law_tracking.project.type:law_tracking_x.law_tracking_project_type_edit
 #: view:law_tracking.stage:law_tracking_x.law_tracking_stage_edit
 msgid "Stage"
-msgstr "Etapa"
+msgstr "Stage"
 
 #. module: law_tracking_x
 #: field:law_tracking.stage,name:0
 msgid "Stage Name"
-msgstr "Nombre de Etapa"
+msgstr "Stage Name"
 
 #. module: law_tracking_x
 #: model:ir.actions.act_window,name:law_tracking_x.law_tracking_stage_action
@@ -1255,39 +1254,39 @@ msgstr "Nombre de Etapa"
 #: view:law_tracking.stage:law_tracking_x.law_tracking_stage_search
 #: view:law_tracking.stage:law_tracking_x.law_tracking_stage_tree
 msgid "Stages"
-msgstr "Etapas"
+msgstr "Stages"
 
 #. module: law_tracking_x
 #: field:law_tracking.commission_detail,state:0
 msgid "State"
-msgstr "Estado"
+msgstr "State"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,user_subscription_state:0
 msgid "Subscribed"
-msgstr "Suscripto"
+msgstr "Subscribed"
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_subscription
 #: field:law_tracking.law_project,user_subscription_id:0
 msgid "Subscription"
-msgstr "Suscripción"
+msgstr "Subscription"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,user_subscription_state:0
 msgid "Subscription State"
-msgstr "Estado de Suscripción"
+msgstr "Subscription State"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Subscriptions"
-msgstr "Suscripciones"
+msgstr "Subscriptions"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,subscriptor_ids:0
 msgid "Subscriptors"
-msgstr "Suscriptores"
+msgstr "Subscriptors"
 
 #. module: law_tracking_x
 #: model:email.template,subject:law_tracking_x.project_suggestion_mail
@@ -1309,27 +1308,27 @@ msgstr "Suggestions has been sent to: "
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Summary"
-msgstr "Resumen"
+msgstr "Summary"
 
 #. module: law_tracking_x
 #: field:law_tracking.project.type,stage_ids:0
 msgid "Tasks Stages"
-msgstr "Etapas de tareas"
+msgstr "Tasks Stages"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Technical Data"
-msgstr "Infomación Técnica"
+msgstr "Technical Data"
 
 #. module: law_tracking_x
 #: model:law_tracking.category,name:law_tracking_x.law_category_03
 msgid "Telefonía celular"
-msgstr ""
+msgstr "Telefonía celular"
 
 #. module: law_tracking_x
 #: help:law_tracking.category,active:0
 msgid "The active field allows you to hide the category without removing it."
-msgstr "El campo activo le permite ocultar la categoría sin eliminarla"
+msgstr "The active field allows you to hide the category without removing it."
 
 #. module: law_tracking_x
 #: help:law_tracking.stage,state:0
@@ -1337,31 +1336,31 @@ msgid ""
 "The status of your document is automatically changed regarding the selected "
 "stage. For example, if a stage is related to the status 'Close', when your "
 "document reaches this stage, it is automatically closed."
-msgstr "El estado de su documento es cambiado automáticamente dependiendo de la etapa elegida. Por ejemplo, si una etapa está relacionada con el estado \"Cerrado\", cuando su documento alcance esta etapa, es cerrada automáticamente"
+msgstr "The status of your document is automatically changed regarding the selected stage. For example, if a stage is related to the status 'Close', when your document reaches this stage, it is automatically closed."
 
 #. module: law_tracking_x
 #: sql_constraint:law_tracking.subscription:0
 msgid ""
 "There can not be two subscription of the same partner on the same law "
 "project."
-msgstr "No pueden haber dos suscripciones del mismo cliente en el mismo proyecto de ley"
+msgstr "There can not be two subscription of the same partner on the same law project."
 
 #. module: law_tracking_x
 #: help:law_tracking.stage,fold:0
 msgid ""
 "This stage is folded in the kanban view whenthere are no records in that "
 "stage to display."
-msgstr "Esta etapa esta doblada en la vista Kanban cuando no existen registros en esa etapa para mostrar"
+msgstr "This stage is folded in the kanban view whenthere are no records in that stage to display."
 
 #. module: law_tracking_x
 #: view:law_tracking.legislature_member:law_tracking_x.view_legislature_member_from_partner_form
 msgid "To Draft"
-msgstr "A Borrador"
+msgstr "To Draft"
 
 #. module: law_tracking_x
 #: field:law_tracking.subscription,to_pay:0
 msgid "To Pay"
-msgstr "A pagar"
+msgstr "To Pay"
 
 #. module: law_tracking_x
 #: view:law_tracking.subscription:law_tracking_x.view_law_tracking_subscription_tree
@@ -1381,38 +1380,38 @@ msgstr "Unicameral?"
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "Unsubscribe"
-msgstr "Desuscribir"
+msgstr "Unsubscribe"
 
 #. module: law_tracking_x
 #: selection:law_tracking.law_project,user_subscription_state:0
 msgid "Unsubscribed"
-msgstr "Desuscripto"
+msgstr "Unsubscribed"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,user_is_employee:0
 msgid "User Is a Employee"
-msgstr "El usuario es un empleado"
+msgstr "User Is a Employee"
 
 #. module: law_tracking_x
 #: field:law_tracking.law_project,user_is_subscriptor:0
 msgid "User Is a Subscriptor"
-msgstr "El Usuario es un Suscriptor"
+msgstr "User Is a Subscriptor"
 
 #. module: law_tracking_x
 #: code:addons/law_tracking_x/law_project.py:640
 #, python-format
 msgid "User must belong to a partner tipe \"Is Company\""
-msgstr "El usuario debe pertenecer a un partner tipo \"Es Empresa\""
+msgstr "User must belong to a partner tipe \"Is Company\""
 
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_res_users
 msgid "Users"
-msgstr "Usuarios"
+msgstr "Users"
 
 #. module: law_tracking_x
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_14
 msgid "Vetoed"
-msgstr "Vetado"
+msgstr "Vetoed"
 
 #. module: law_tracking_x
 #: view:law_tracking.commission_detail:law_tracking_x.view_law_tracking_commission_detail_tree
@@ -1452,7 +1451,7 @@ msgstr "draft,required,subscribed,unsubscribed"
 #. module: law_tracking_x
 #: model:ir.model,name:law_tracking_x.model_law_tracking_enclosure_treatment_detail
 msgid "enclosure_treatment_detail"
-msgstr ""
+msgstr "enclosure_treatment_detail"
 
 #. module: law_tracking_x
 #: view:law_tracking.subscription:law_tracking_x.view_law_tracking_subscription_form
@@ -1469,12 +1468,12 @@ msgstr "law_tracking.group_user"
 #: view:law_tracking.legislature_member:law_tracking_x.view_legislature_member_from_partner_form
 #: view:law_tracking.legislature_member:law_tracking_x.view_legislature_member_from_partner_tree
 msgid "legislature_member"
-msgstr "miembro_legislatura"
+msgstr "legislature_member"
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
 msgid "log"
-msgstr ""
+msgstr "log"
 
 #. module: law_tracking_x
 #: view:law_tracking.subscription:law_tracking_x.view_law_tracking_subscription_form
@@ -1502,7 +1501,7 @@ msgstr "treatment_detail"
 #: field:law_tracking.law_project,legislature_type:0
 #: field:law_tracking.legislature,has_image:0
 msgid "unknown"
-msgstr "desconocido"
+msgstr "unknown"
 
 #. module: law_tracking_x
 #: view:law_tracking.commission_detail:law_tracking_x.view_law_tracking_commission_detail_tree
