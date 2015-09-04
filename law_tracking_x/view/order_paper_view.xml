@@ -48,6 +48,18 @@
 <!--                 <button name="sgn_cancel" position="attributes">
                     <attribute name="groups">base.group_no_one</attribute>
                 </button> -->
+                 <button name="sgn_notify" position="replace">
+                    <button name="sgn_notify"
+                            string="Notify Agenda"
+                            class="oe_highlight"
+                            />
+                </button>
+                <button name="sgn_set_treated" position="replace">
+                    <button name="sgn_set_treated"
+                            string="Set Treated"
+                            class="oe_highlight"
+                            />
+                </button>
                 <field name="state" position="attributes">
                     <attribute name="statusbar_visible">draft,notified,treated</attribute>
                 </field>                                
