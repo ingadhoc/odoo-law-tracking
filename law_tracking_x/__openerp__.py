@@ -82,7 +82,7 @@ Projects required:
     'init_xml': [],
     'installable': True,
     'license': 'AGPL-3',
-    'name': u'ordLaw Tracking Project',
+    'name': u'Law Tracking Project',
     'test': [],
     'data': [   
           'data/mail_data.xml',
