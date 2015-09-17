@@ -144,7 +144,7 @@
                 </field>
 
                 <field name="email" position="after">
-                    <field name="contracted_country_ids" widget="many2many_tags" attrs="{'invisible':[('is_company','!=',True)],'required':[('is_company','=',True)]}"/>
+                    <field name="contracted_country_ids" widget="many2many_tags" attrs="{'invisible':[('is_company','!=',True)]}"/>
                 </field>
                 <page string="Sales &amp; Purchases" position="attributes">
                     <attribute name="groups">base.group_no_one</attribute>
