@@ -37,6 +37,9 @@ install:
   - git clone https://github.com/aeroo/aeroo_reports.git ${HOME}/aeroo_reports
   - pip install git+https://github.com/aeroo/aeroolib.git@master pycups==1.9.68
 
+  # odoo help
+  - git clone https://github.com/ingadhoc/odoo-help.git -b 8.0 ${HOME}/odoo-help
+
   # odoo addons adhoc
   - git clone https://github.com/ingadhoc/odoo-addons.git -b 8.0 ${HOME}/odoo-addons
 
