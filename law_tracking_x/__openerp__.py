@@ -122,7 +122,7 @@ Projects required:
     'init_xml': [   
 
     ],    
-    'version': u'8.0.0.1.0',
+    'version': u'8.0.0.2.0',
     'css': [
         'static/src/css/note.css',
         'static/src/css/style.css',        

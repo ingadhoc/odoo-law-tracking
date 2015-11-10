@@ -86,7 +86,7 @@
             </field>
         </record>        
 
-        <!-- FORMVIEW -->mail.view_emails_partner_info_form
+        <!-- FORMVIEW -->
         <record id="view_res_partner_law_tracking_form" model="ir.ui.view">
             <field name="name">contact.partner.law_tracking.form</field>
             <field name="model">res.partner</field>
@@ -95,6 +95,11 @@
             <!-- Sacamos las categorias por defecto pero las pordiamos usar mas adelante-->
                 <field name="category_id" position="replace">
                     <field name="law_category_ids" widget="many2many_tags" placeholder="Categories..." attrs="{'invisible': [('is_company', '=', False)]}"/>
+                </field>
+
+                <!-- pidieron que el email no sea obligatorio, es obligatorio por vista para partenrs con usuario portal -->
+                <field name="email" position="attributes">
+                    <attribute name="attrs"></attribute>
                 </field>
             
 <!--                 <div class="oe_edit_only" position="attributes">
