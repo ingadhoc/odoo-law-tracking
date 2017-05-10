@@ -27,7 +27,6 @@ class partner(osv.osv):
         'commission_detail_ids': fields.one2many('law_tracking.commission_detail', 'commission_id', string='Commission Details', domain=[('legislature_member_id.state','=','active')], ondelete='cascade'), 
         'order_paper_ids': fields.one2many('law_tracking.order_paper', 'commission_id', string='Order Paper'), 
         'legislature_id': fields.many2one('law_tracking.legislature', string='Legislature'), 
-        'contracted_country_ids': fields.many2many('res.country', 'law_tracking___contracted_country_ids_rel', 'partner_id', 'country_id', string='Contracted Countries', context={'default_contratable':True}, domain=[('contratable','=',True)]), 
         'dep_commission_treatment_ids': fields.one2many('law_tracking.commission_treatment', 'partner_id', string='Deputies Commission Treatment'), 
         'legislature_member_ids': fields.one2many('law_tracking.legislature_member', 'partner_id', string='legislature_member_ids'), 
         'subscription_ids': fields.one2many('law_tracking.subscription', 'partner_id', string='Subscriptions'), 

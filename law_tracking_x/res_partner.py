@@ -80,6 +80,7 @@ class res_partner(osv.osv):
         # 'commision_detail_ids': fields.one2many('law_tracking.commission_detail', 'partner_id', string='Commissions', domain=[('legislature_member_id.state','=','active')], readonly=True, ),
         # Hicimos que ahora cada partner
         # 'parent_law_category_ids': fields.related('parent_id', 'law_category_ids', type='many2many', relation='law_tracking.category', string='Categories'),
+        'contracted_country_ids': fields.many2many('res.country', 'law_tracking___contracted_country_ids_rel', 'partner_id', 'country_id', string='Contracted Countries', context={'default_contratable':True}, domain=[('contratable','=',True)]),
     }
 
     def copy(self, cr, uid, id, default=None, context=None, done_list=None, local=False):
