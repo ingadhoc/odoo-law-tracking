@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo-law-tracking (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 15:53+0000\n"
-"PO-Revision-Date: 2015-09-01 19:02+0000\n"
-"Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
+"POT-Creation-Date: 2017-05-10 15:39+0000\n"
+"PO-Revision-Date: 2017-05-10 15:39+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-law-tracking-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,11 +203,6 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: law_tracking
-#: field:res.partner,contracted_country_ids:0
-msgid "Contracted Countries"
-msgstr "Países Contratados"
-
-#. module: law_tracking
 #: view:law_tracking.legislature:law_tracking.view_law_tracking_legislature_filter
 #: view:law_tracking.legislature:law_tracking.view_law_tracking_legislature_form
 #: field:law_tracking.legislature,country_id:0
@@ -310,6 +305,23 @@ msgstr "Detalle"
 #: model:mail.message.subtype,name:law_tracking.commission_treatment_disapproved
 msgid "Disapproved"
 msgstr "Desaprobado"
+
+#. module: law_tracking
+#: field:law_tracking.block,display_name:0
+#: field:law_tracking.commission_detail,display_name:0
+#: field:law_tracking.commission_position,display_name:0
+#: field:law_tracking.commission_treatment,display_name:0
+#: field:law_tracking.enclosure_treatment_detail,display_name:0
+#: field:law_tracking.law_project,display_name:0
+#: field:law_tracking.law_project_document,display_name:0
+#: field:law_tracking.legislature,display_name:0
+#: field:law_tracking.legislature_member,display_name:0
+#: field:law_tracking.log,display_name:0
+#: field:law_tracking.order_paper,display_name:0
+#: field:law_tracking.subscription,display_name:0
+#: field:law_tracking.treatment_detail,display_name:0
+msgid "Display Name"
+msgstr ""
 
 #. module: law_tracking
 #: field:law_tracking.law_project,law_project_document_ids:0
@@ -452,6 +464,23 @@ msgstr "Etiqueta"
 #: field:law_tracking.order_paper,message_last_post:0
 #: field:law_tracking.subscription,message_last_post:0
 msgid "Last Message Date"
+msgstr ""
+
+#. module: law_tracking
+#: field:law_tracking.block,__last_update:0
+#: field:law_tracking.commission_detail,__last_update:0
+#: field:law_tracking.commission_position,__last_update:0
+#: field:law_tracking.commission_treatment,__last_update:0
+#: field:law_tracking.enclosure_treatment_detail,__last_update:0
+#: field:law_tracking.law_project,__last_update:0
+#: field:law_tracking.law_project_document,__last_update:0
+#: field:law_tracking.legislature,__last_update:0
+#: field:law_tracking.legislature_member,__last_update:0
+#: field:law_tracking.log,__last_update:0
+#: field:law_tracking.order_paper,__last_update:0
+#: field:law_tracking.subscription,__last_update:0
+#: field:law_tracking.treatment_detail,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: law_tracking

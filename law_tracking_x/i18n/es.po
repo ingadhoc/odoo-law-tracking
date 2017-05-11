@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo-law-tracking (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 15:53+0000\n"
-"PO-Revision-Date: 2015-09-04 16:04+0000\n"
-"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>\n"
+"POT-Creation-Date: 2017-05-10 15:39+0000\n"
+"PO-Revision-Date: 2017-05-10 15:40+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-law-tracking-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -572,7 +572,7 @@ msgstr "No se puede enviar correo: no existe servidor de correo configurado. Pue
 #. module: law_tracking_x
 #: field:law_tracking.law_project,law_category_ids:0
 #: field:law_tracking.law_project,law_category_ids_copy:0
-#: field:res.partner,law_category_ids:0
+#: field:res.partner,law_category_ids:0 field:res.users,law_category_ids:0
 msgid "Categories"
 msgstr "Categorías"
 
@@ -643,6 +643,7 @@ msgstr "La Comisión debe ser única"
 #: field:law_tracking.legislature,senators_commission_ids:0
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 #: field:res.partner,commision_detail_ids:0
+#: field:res.users,commision_detail_ids:0
 msgid "Commissions"
 msgstr "Comisiones"
 
@@ -669,6 +670,12 @@ msgstr "Confirmación de Suscripción al Proyecto de Ley ${object.law_project_id
 #: view:res.partner:law_tracking_x.view_res_partner_law_tracking_form
 msgid "Contacts"
 msgstr "Contactos"
+
+#. module: law_tracking_x
+#: field:res.partner,contracted_country_ids:0
+#: field:res.users,contracted_country_ids:0
+msgid "Contracted Countries"
+msgstr ""
 
 #. module: law_tracking_x
 #: field:res.country,contratable:0
@@ -740,6 +747,14 @@ msgstr "Descripción"
 #: model:law_tracking.stage,name:law_tracking_x.law_tracking_stage_17
 msgid "Disapproved"
 msgstr "Desaprobado"
+
+#. module: law_tracking_x
+#: field:law_tracking.category,display_name:0
+#: field:law_tracking.law_project.change_stage,display_name:0
+#: field:law_tracking.project.type,display_name:0
+#: field:law_tracking.stage,display_name:0
+msgid "Display Name"
+msgstr ""
 
 #. module: law_tracking_x
 #: view:law_tracking.law_project:law_tracking_x.view_law_tracking_law_project_form
@@ -847,12 +862,12 @@ msgstr "En Progreso"
 
 #. module: law_tracking_x
 #: view:res.partner:law_tracking_x.view_law_tracking_partner_filter
-#: field:res.partner,inactive:0
+#: field:res.partner,inactive:0 field:res.users,inactive:0
 msgid "Inactive"
 msgstr ""
 
 #. module: law_tracking_x
-#: help:res.partner,inactive:0
+#: help:res.partner,inactive:0 help:res.users,inactive:0
 msgid ""
 "Inactive Legislators are the ones that doesn't have any legislature function"
 " 'active'"
@@ -878,6 +893,14 @@ msgstr "¿Es una empresa?"
 #: selection:law_tracking.law_project,presented_by:0
 msgid "Judiciary"
 msgstr "Poder Judicial"
+
+#. module: law_tracking_x
+#: field:law_tracking.category,__last_update:0
+#: field:law_tracking.law_project.change_stage,__last_update:0
+#: field:law_tracking.project.type,__last_update:0
+#: field:law_tracking.stage,__last_update:0
+msgid "Last Modified on"
+msgstr ""
 
 #. module: law_tracking_x
 #: field:law_tracking.category,write_uid:0
@@ -965,7 +988,7 @@ msgstr "Legislatura"
 
 #. module: law_tracking_x
 #: field:law_tracking.order_paper,legislature_type:0
-#: field:res.partner,legislature_type:0
+#: field:res.partner,legislature_type:0 field:res.users,legislature_type:0
 msgid "Legislature Type"
 msgstr "Tipo de Legislatura"
 
